@@ -12,8 +12,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import { useAuth } from '../contexts/authContext';
+
 import { Alert } from '@mui/material';
+import { useAuth } from '../../Context/authContext';
 
 function Copyright(props) {
   return (
@@ -31,7 +32,8 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Register() {
-    // const {register, error, setError} = useAuth()
+    const {register, error, setError} = useAuth()
+    console.log(error)
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -50,13 +52,13 @@ export default function Register() {
         formData.append("password", password)
         formData.append("password_confirm", passwordConfirm)
         // добавляем юзера
-        // register(formData)
+        register(formData)
     }
 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        {/* {error ? <Alert severity='error'>{error}</Alert> : null} */}
+        {error ? <Alert severity='error'>{error}</Alert> : null}
         <CssBaseline />
         <Box
           sx={{

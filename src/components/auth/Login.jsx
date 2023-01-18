@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-// import { useAuth } from '../contexts/authContext';
-import { Alert } from '@mui/material';
+import React, { useState } from "react";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import CssBaseline from "@mui/material/CssBaseline";
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Link from "@mui/material/Link";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Alert } from "@mui/material";
+import { useAuth } from "../../Context/authContext";
 
 function Copyright(props) {
   return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
         Your Website
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -31,45 +36,42 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
-    // const { error, setError, login} = useAuth()
+  const { login, error, setError } = useAuth()
 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    // функцию навешиваем на кнопку
-    function handleSave(){
-        // проверка на заполненность полей
-        if (!email.trim() || !password.trim()) {
-            alert("zapolnite polya")
-            return
-        }
-        // создание обьекта
-        let formData = new FormData()
-        formData.append("email", email)
-        formData.append("password", password)
-
-        // login(formData,email)
-
+  function handleSave() {
+    if (!email.trim() || !password.trim()) {
+      alert("Заполните поля!");
+      return;
     }
+
+    let formData = new FormData();
+    formData.append("email", email);
+    formData.append("password", password);
+
+    login(formData, email);
+  }
 
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
-        {/* {error ? <Alert severity='error'>{error}</Alert> : null} */}
+        {error ? <Alert severity="error">{error}</Alert> : null}
         <CssBaseline />
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            вход
+            Sign In
           </Typography>
           <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
@@ -82,7 +84,7 @@ export default function Login() {
               autoComplete="email"
               autoFocus
               value={email}
-              onChange={(e)=> setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
               margin="normal"
@@ -94,8 +96,9 @@ export default function Login() {
               id="password"
               autoComplete="current-password"
               value={password}
-              onChange={(e)=> setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
             />
+
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
@@ -104,9 +107,9 @@ export default function Login() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={()=> handleSave()}
+              onClick={handleSave}
             >
-              вход
+              Sign in
             </Button>
             <Grid container>
               <Grid item xs>
