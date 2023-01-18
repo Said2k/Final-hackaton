@@ -7,7 +7,7 @@ export const authContext = createContext()
 
 
 export const useAuth = () =>{
-    useContext(authContext)
+    return useContext(authContext)
 }
 
     const API = 'http://34.134.203.27/account/'
@@ -40,11 +40,25 @@ try {
 
 //! ============ LOGIN START ============
 
+//  const login = async (formData, email)=>{
+//     try {
+//         let res = await axios.post(`${API}login/`, formData)
+//         console.log(res);
+//         localStorage.setItem('token', JSON.stringify(res.data))
+//         localStorage.setItem('username', email)
+//         setUser(email)
+//         navigate('/')
+//     } catch (error) {
+//         console.log(error.response.data.detail);
+//         setError(error.response.data.detail)
+        
+//     }
+// }
 
 const login = async (formData, email) =>{
     try {
         let res = await axios.post(`${API}login/`,formData)
-
+        
         localStorage.setItem('token', JSON.stringify(res.data))
         localStorage.setItem('username', email)
         setUser(email)
@@ -70,12 +84,12 @@ const checkUser = async () =>{
         }
         )
         console.log(res);
-    } catch (error) {
-        console.log(error);
-
         localStorage.setItem('token', JSON.stringify({refresh: token.refresh, access: res.data.access}))
         let username = localStorage.getItem('username')
         setUser(username)
+    } catch (error) {
+        console.log(error);
+
     }
 }
 
@@ -101,8 +115,10 @@ const checkUser = async () =>{
         }
 
 
-    return(
-        <authContext.Provider value={values}>{children}</authContext.Provider>
+    return( 
+        <authContext.Provider value={values}>
+            {children}
+            </authContext.Provider>
 
     )
 
