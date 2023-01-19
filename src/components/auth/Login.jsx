@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Alert } from "@mui/material";
 import { useAuth } from "../../Context/authContext";
 
+
 function Copyright(props) {
   return (
     <Typography
@@ -32,6 +33,7 @@ function Copyright(props) {
     </Typography>
   );
 }
+
 
 const theme = createTheme();
 

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export const authContext = createContext();
 export const useAuth = () => useContext(authContext);
 
-const API = "http://34.134.203.27/account/";
+const API = "http://34.134.203.27/users/";
 
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
@@ -49,7 +49,7 @@ const AuthContextProvider = ({ children }) => {
       const Authorization = `Bearer ${token.access}`;
 
       let res = await axios.post(
-        `${API}token/refresh/`,
+        `${API}login/refresh/`,
         {
           refresh: token.refresh,
         },
