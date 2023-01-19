@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export const authContext = createContext();
 export const useAuth = () => useContext(authContext);
 
-const API = "http://34.134.203.27/account/";
+const API = "http://34.134.203.27/users/";
 
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
@@ -49,7 +49,7 @@ const AuthContextProvider = ({ children }) => {
       const Authorization = `Bearer ${token.access}`;
 
       let res = await axios.post(
-        `${API}token/refresh/`,
+        `${API}login/refresh/`,
         {
           refresh: token.refresh,
         },
@@ -80,6 +80,24 @@ const AuthContextProvider = ({ children }) => {
     setUser("");
     navigate("/login");
   }
+  // восстановление пароля
+  const getPassword = async (email) => {
+    try {
+      await axios(`${API}forgot/?email=${email}`);
+      navigate("/forgotActivity");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // активация ключа
+  const postActivity = async (key, formData) => {
+    try {
+      const res = await axios.post(`${API}accept/${key}/`, formData);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   let values = {
     checkAuth,
@@ -89,6 +107,8 @@ const AuthContextProvider = ({ children }) => {
     login,
     user,
     logout,
+    getPassword,
+    postActivity,
   };
 
   return <authContext.Provider value={values}>{children}</authContext.Provider>;
