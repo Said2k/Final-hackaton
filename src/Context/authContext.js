@@ -2,125 +2,96 @@ import axios from "axios";
 import React, { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+export const authContext = createContext();
+export const useAuth = () => useContext(authContext);
 
-export const authContext = createContext()
+const API = "http://34.134.203.27/users/";
 
+const AuthContextProvider = ({ children }) => {
+  const [user, setUser] = useState("");
+  const [error, setError] = useState("");
 
-export const useAuth = () =>{
-    return useContext(authContext)
-}
+  const navigate = useNavigate();
 
-    const API = 'http://34.134.203.27/account/'
-const AuthContextProvider = ({children}) =>{
-const [user,setUser] = useState('')
-const [error, setError]= useState('')
-
-const navigate = useNavigate()
-
-
-
-//! =========== REGISTER start ==========
-
-
-const register = async(formData)=>{
-try {
-    const res = await axios.post(`${API}/register/`, formData)
-    navigate('/login')
-    console.log(res);
-} catch (error) {
-    console.log(error);
-    setError(Object.values(error.response.data).flat(2))
-}
-
-}
-
-// ! ============ REGISTER END ===========
-
-
-
-//! ============ LOGIN START ============
-
-//  const login = async (formData, email)=>{
-//     try {
-//         let res = await axios.post(`${API}login/`, formData)
-//         console.log(res);
-//         localStorage.setItem('token', JSON.stringify(res.data))
-//         localStorage.setItem('username', email)
-//         setUser(email)
-//         navigate('/')
-//     } catch (error) {
-//         console.log(error.response.data.detail);
-//         setError(error.response.data.detail)
-        
-//     }
-// }
-
-const login = async (formData, email) =>{
+  // регистрация
+  const register = async (formData) => {
     try {
-        let res = await axios.post(`${API}login/`,formData)
-        
-        localStorage.setItem('token', JSON.stringify(res.data))
-        localStorage.setItem('username', email)
-        setUser(email)
-        navigate('/')
+      const res = await axios.post(`${API}register/`, formData);
+      console.log(res);
+      navigate("/login");
     } catch (error) {
-        console.log(error);
-        setError(error.response.data.detail)
+      console.log(Object.values(error.response.data).flat(2));
+      console.log(error);
+      setError(Object.values(error.response.data).flat(2));
     }
-}
+  };
 
-//! ============ LOGIN END ==============
-
-
-const checkUser = async () =>{
-    let token =JSON.parse(localStorage.getItem('token'))
-    console.log(token);
+  // авторизация
+  const login = async (formData, email) => {
     try {
-        const Authorization = `Bearer ${token.access}`;
-        let res = await axios.post(`${API}login/refresh/`, {
-            refresh: token.refresh
-        },{
-            headers: {Authorization},
-        }
-        )
-        console.log(res);
-        localStorage.setItem('token', JSON.stringify({refresh: token.refresh, access: res.data.access}))
-        let username = localStorage.getItem('username')
-        setUser(username)
+      const res = await axios.post(`${API}login/`, formData);
+      console.log(res);
+      localStorage.setItem("token", JSON.stringify(res.data));
+      localStorage.setItem("username", email);
+      setUser(email);
+      navigate("/");
     } catch (error) {
-        console.log(error);
-
+      console.log(error.response.data.detail);
+      setError(error.response.data.detail);
     }
-}
+  };
 
+  // проверка access токена на действительность
+  async function checkAuth() {
+    let token = JSON.parse(localStorage.getItem("token"));
+    // console.log(token);
+    try {
+      const Authorization = `Bearer ${token.access}`;
 
-    const logout = () =>{
-        localStorage.removeItem('token')
-        localStorage.removeItem('username')
-        setUser('')
-
-        navigate('/login')
-    }
-
-
-        const values ={
-            logout,
-            login,
-            register,
-            checkUser,
-            setError,
-
-            error,
-            user,
+      let res = await axios.post(
+        `${API}login/refresh/`,
+        {
+          refresh: token.refresh,
+        },
+        {
+          headers: { Authorization },
         }
+      );
 
+      localStorage.setItem(
+        "token",
+        JSON.stringify({ refresh: token.refresh, access: res.data.access })
+      );
 
-    return( 
-        <authContext.Provider value={values}>
-            {children}
-            </authContext.Provider>
+      let username = localStorage.getItem("username");
 
-    )
+      setUser(username);
 
-}
-export default AuthContextProvider
+      // console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // выход из аккаунта
+  function logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    setUser("");
+    navigate("/login");
+  }
+
+  let values = {
+    checkAuth,
+    register,
+    error,
+    setError,
+    login,
+    user,
+    logout,
+  };
+
+  return <authContext.Provider value={values}>{children}</authContext.Provider>;
+};
+
+export default AuthContextProvider;
