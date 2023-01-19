@@ -16,6 +16,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Alert } from '@mui/material';
 import { useAuth } from '../../Context/authContext';
 
+
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -72,7 +73,7 @@ export default function Register() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Register
+            Регистрация
           </Typography>
           <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
@@ -80,7 +81,7 @@ export default function Register() {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="Почта"
               name="email"
               autoComplete="email"
               autoFocus
@@ -92,7 +93,7 @@ export default function Register() {
               required
               fullWidth
               name="password"
-              label="Password"
+              label="пароль"
               type="password"
               id="password"
               autoComplete="current-password"
@@ -104,7 +105,7 @@ export default function Register() {
               required
               fullWidth
               name="password-confirm"
-              label="Password confirm"
+              label="Подтверждение пароля"
               type="password"
               id="password-confirm"
               autoComplete="current-password"
@@ -121,17 +122,17 @@ export default function Register() {
               sx={{ mt: 3, mb: 2 }}
               onClick={()=> handleSave()}
             >
-              Register
+              Регистрация
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
+                <Link href="/forgot" variant="body2">
+                  Забыли пароль?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link href="/login" variant="body2">
+                  {"Есть аккаунт? Войти"}
                 </Link>
               </Grid>
             </Grid>

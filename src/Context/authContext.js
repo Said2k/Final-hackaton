@@ -80,6 +80,24 @@ const AuthContextProvider = ({ children }) => {
     setUser("");
     navigate("/login");
   }
+  // восстановление пароля
+  const getPassword = async (email) => {
+    try {
+      await axios(`${API}forgot/?email=${email}`);
+      navigate("/forgotActivity");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // активация ключа
+  const postActivity = async (key, formData) => {
+    try {
+      const res = await axios.post(`${API}accept/${key}/`, formData);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   let values = {
     checkAuth,
@@ -89,6 +107,8 @@ const AuthContextProvider = ({ children }) => {
     login,
     user,
     logout,
+    getPassword,
+    postActivity,
   };
 
   return <authContext.Provider value={values}>{children}</authContext.Provider>;
