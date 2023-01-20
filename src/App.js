@@ -1,5 +1,7 @@
+
 import React from "react";
-import Navbar from "./components/navbar/Navbar";
+import Footer from './components/footer/Footer';
+import Navbar from './components/navbar/Navbar';
 import AuthContextProvider from "./Context/authContext";
 import CommContextProvider from "./Context/commContext";
 import FavoritesContextProvider from "./Context/favorite";
@@ -15,8 +17,9 @@ const App = () => {
         <OrgaContextProvider>
          <CommContextProvider>
           <FavoritesContextProvider>
-      <Navbar />
+      <Navbar/>
       <Routing />
+      <Footer/>
       </FavoritesContextProvider>
       </CommContextProvider>
       </OrgaContextProvider>
