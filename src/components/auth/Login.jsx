@@ -18,6 +18,7 @@ import { useAuth } from "../../Context/authContext";
 
 function Copyright(props) {
   return (
+    
     <Typography
       variant="body2"
       color="text.secondary"
@@ -57,13 +58,14 @@ export default function Login() {
   }
 
   return (
+    <div className='regist-block'>
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container  className='auth-box' component="main" maxWidth="xs">
         {error ? <Alert severity="error">{error}</Alert> : null}
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 5,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -127,8 +129,8 @@ export default function Login() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
+    </div>
   );
 }
