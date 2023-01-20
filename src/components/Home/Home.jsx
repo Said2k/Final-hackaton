@@ -1,4 +1,6 @@
+import { Button } from '@mui/material';
 import React, { useEffect } from 'react';
+import { useComm } from '../../Context/commContext';
 import { useOrgaContext } from '../../Context/organContext';
 import { useProducts } from '../../Context/productContext';
 
@@ -27,6 +29,7 @@ const Home = () => {
         oneProduct,
   } =useProducts()
 
+   const {addComment,getComm,deleteComm, getOneComment, editComm} = useComm()
 
     let obj = {
         title: 'product2',
@@ -44,6 +47,15 @@ const Home = () => {
 
 
     }
+
+    let nobj = {
+        body: "wtf",
+        organization: 2,
+    }
+
+    let neeobj = {
+        body: "wtf2",
+    }
     return (
         
 
@@ -55,6 +67,11 @@ const Home = () => {
         <button onClick={()=>deleteProduct(2,5)}>del</button>
         <button onClick={()=>getOneProduct(2,3)}>oneProduct</button>
 
+        <Button onClick={()=>addComment(2, nobj)}>addComm</Button>
+        <Button onClick={()=>getComm(2)}>getComm</Button>
+        <Button onClick={()=>deleteComm(2, 2)}>deleteComm</Button>
+        <Button onClick={()=>getOneComment(2, 3)}>getOneComment</Button>
+        <Button onClick={()=>editComm(2, 3, neeobj)}>editComm</Button>
         </div>
     );
 };
