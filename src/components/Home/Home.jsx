@@ -1,61 +1,24 @@
 import React, { useEffect } from 'react';
-import { useOrgaContext } from '../../Context/organContext';
+import { useFavorites } from '../../Context/favorite';
 import { useProducts } from '../../Context/productContext';
-
+import './home.css'
 const Home = () => {
-  const {
-    addOrga,
-        getOrga,
-        getOneOrga,
-        editOrga,
-        deleteOrga,
+    const {getFavorites} = useFavorites()
+    const {addFavorite, getProduct,deleteProduct} = useProducts()
 
-
-        orgaProducts,
-        oneProductOrga 
-  } =useOrgaContext()
-
-  const {
-    addProduct,
-        getProduct,
-        getOneProduct,
-        editProduct,
-        deleteProduct,
-
-
-        product,
-        oneProduct,
-  } =useProducts()
-
-
-    let obj = {
-        title: 'product2',
+    let obj= {
+        title: 'fav',
         price: '23',
-        description: "something",
-        organization: 3,
-
-
-    }
-    let newObj = {
-        title: 'productEdit',
-        price: '0000',
-        description: "edit",
-
-
-
+        description: '23dfsdfsd',
     }
     return (
-        
-
         <div>
-          
-        <button onClick={()=>addProduct(2,newObj)}>add</button>
-        <button onClick={()=>editProduct(2, 3, newObj)}>edit</button>
-        <button onClick={()=>getOrga(2)}>get</button>
-        <button onClick={()=>deleteProduct(2,5)}>del</button>
-        <button onClick={()=>getOneProduct(2,3)}>oneProduct</button>
-
-        </div>
+            <button className='btn' onClick={()=>getFavorites(2)}>get</button>
+            <button className='btn' onClick={()=>addFavorite(2,1)}>like</button>
+            <button className='btn' onClick={()=>deleteProduct(2,4)}>del</button>
+            <button className='btn' onClick={()=>getProduct(2)}>product</button>
+            </div>
+        
     );
 };
 
