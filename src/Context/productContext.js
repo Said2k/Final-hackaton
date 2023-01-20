@@ -61,7 +61,7 @@ const ProductContextProvider = ({children}) =>{
                 type: 'GET_PRODUCT',
                 payload: res.data.results
             })
-            console.log(res);
+            console.log(res.data.results);
         } catch (error) {
             console.log(error);
         }
@@ -117,6 +117,23 @@ const ProductContextProvider = ({children}) =>{
     }
 
 
+    const addFavorite = async(organization, id) =>{
+        try {
+            const token = JSON.parse(localStorage.getItem('token'))
+            const Authorization = `Bearer ${token.access}`
+            const config = {
+                headers:{
+                    Authorization,
+                }
+            }
+            console.log(config);
+            const res = await axios.put(`${API}${organization}/products/${id}/favorite/`, {},config)
+            console.log(res);
+        } catch (error) {
+            console.log(error);
+        }
+        }
+
    
 
     
@@ -126,6 +143,7 @@ const ProductContextProvider = ({children}) =>{
         getOneProduct,
         editProduct,
         deleteProduct,
+        addFavorite,
 
 
         product: state.products,

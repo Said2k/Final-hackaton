@@ -57,13 +57,14 @@ export default function Register() {
     }
 
   return (
+    <div className='regist-block'>
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container className='auth-box' component="main" maxWidth="xs">
         {error ? <Alert severity='error'>{error}</Alert> : null}
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 6,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -75,7 +76,7 @@ export default function Register() {
           <Typography component="h1" variant="h5">
             Регистрация
           </Typography>
-          <Box component="form" noValidate sx={{ mt: 1 }}>
+          <Box  component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -119,7 +120,7 @@ export default function Register() {
             <Button
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2, backgroundColor: '#fff', color: 'black', border: '1px solid #1976d2' }}
               onClick={()=> handleSave()}
             >
               Регистрация
@@ -138,8 +139,9 @@ export default function Register() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
+      <canvas id="c"></canvas>
     </ThemeProvider>
+    </div>
   );
 }
