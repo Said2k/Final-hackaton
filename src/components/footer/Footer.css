@@ -1,0 +1,43 @@
+.footer{
+    /* background: rgb(232,140,26);
+background: linear-gradient(90deg, rgba(232,140,26,1) 33%, rgba(238,221,14,0.6474964985994398) 100%); */
+    display: flex;
+    flex-direction: column;
+    color: white;
+    background-image: url(../footer/wave\ \(4\).svg);
+    background-repeat: no-repeat;
+    width: 100vw;
+    background-size: cover;
+    }
+    
+.footer-links{
+display: flex;
+justify-content: space-around;
+color: white;
+font-size: 25px;
+width: 85vw;
+}
+.footer-links a{
+    text-decoration: none;
+    color: white;
+
+}
+.footer-links li{
+list-style-type: none;
+
+}
+.footer-h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-li a{
+    font-size: 25px;
+    color: black;
+}
+@media only screen and (max-width: 320){
+.footer-links{
+    display: flex;
+    flex-wrap: wrap;
+}
+}
