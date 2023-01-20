@@ -6,6 +6,8 @@ import SideBar from './SideBar';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 const Home = () => {
+   
+
     return (
         <Box className="homepage-main">
             <Box className='home-block1'>
@@ -99,6 +101,7 @@ const Home = () => {
         </Box>
         </Box>
     );
+
 };
 
 export default Home;

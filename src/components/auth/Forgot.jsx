@@ -15,10 +15,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Alert } from "@mui/material";
 import { useAuth } from "../../Context/authContext";
 
-
 function Copyright(props) {
   return (
-    
     <Typography
       variant="body2"
       color="text.secondary"
@@ -35,37 +33,31 @@ function Copyright(props) {
   );
 }
 
-
 const theme = createTheme();
 
-export default function Login() {
-  const { login, error, setError } = useAuth()
+export default function Forgot() {
+  const { error, getPassword } = useAuth()
 
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
 
   function handleSave() {
-    if (!email.trim() || !password.trim()) {
+    if (!email.trim()) {
       alert("Заполните поля!");
       return;
     }
+    getPassword(email)
 
-    let formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
-
-    login(formData, email);
   }
 
   return (
-    <div className='regist-block'>
     <ThemeProvider theme={theme}>
-      <Container  className='auth-box' component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs">
         {error ? <Alert severity="error">{error}</Alert> : null}
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 5,
+            marginTop: 8,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -75,7 +67,7 @@ export default function Login() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Войти
+            Восстановление аккаунта
           </Typography>
           <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
@@ -90,19 +82,6 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Пароль"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
@@ -113,24 +92,21 @@ export default function Login() {
               sx={{ mt: 3, mb: 2 }}
               onClick={handleSave}
             >
-              Войти
+              Отправить
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="/forgot" variant="body2">
-                  Забыли пароль?
-                </Link>
               </Grid>
               <Grid item>
-                <Link href="/register" variant="body2">
+              <Link href="/register" variant="body2">
                   {"Нет аккаунта? создайте!"}
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
+        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
-    </div>
   );
 }
