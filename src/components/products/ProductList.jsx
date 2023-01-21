@@ -8,11 +8,12 @@ const ProductList = () => {
             <div className='product-list-left'>Filter</div>
             <div className='product-list-mid'>
                 <ProductCard/>
-            
+
                 
+
+
             </div>
             <div className='product-list-right'>Favorite
-            
             
             </div>
 

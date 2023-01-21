@@ -1,23 +1,20 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import '../products/ProductList.css'
-import StarBorderIcon from '@mui/icons-material/StarBorder';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 export default function ProductCard() {
   return (
     <Card className="product-list-cards">
       <div className='product-card' style={{backgroundImage:`url(https://play-lh.googleusercontent.com/QziaUvJ3RXas5WbNrT1pIkeVaVLi9lfmqPxVUukBx0zuY5lPv13dVKyKEBYTKI-OCX5Y)`}}>
-
-<button className='product-list-card-btn'>get</button>
-<button className='product-list-card-btn'>like</button>
-<button className='product-list-card-btn'>del</button>
-<button className='product-list-card-btn'>product</button>
+<div className="border">
+<button className='product-list-card-btn'>Menu</button>
+<button className='product-list-card-btn'><ThumbUpOffAltIcon/></button>
+<button className='product-list-card-btn'><FavoriteBorderIcon/></button>
+<button className='product-list-card-btn'><DeleteOutlineIcon/></button>
+</div>
 </div>
     </Card>
   );
