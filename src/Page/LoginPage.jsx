@@ -4,9 +4,9 @@ import './auth.css'
 
 const LoginPage = () => {
     return (
-        <div className='login-container'>
+        <div className='body'>
           
-  <svg className='back-svg' version="1.1" xmlns="http://www.w3.org/2000/svg"
+  <svg className='block__svg' version="1.1" xmlns="http://www.w3.org/2000/svg"
 		xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900"  >
 		<defs >
 			<linearGradient id="bg">

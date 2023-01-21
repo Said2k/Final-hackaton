@@ -5,10 +5,12 @@ import HomeCard from './HomeCards';
 import SideBar from './SideBar';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
+import Footer from '../footer/Footer';
 const Home = () => {
    
 
     return (
+        <div>
         <Box className="homepage-main">
             <Box className='home-block1'>
                 {/* <h1 '>ПОЛУЧАЙ И ЗАРАБАТЫВАЙ ВМЕСТЕ С НАМИ</h1> */}
@@ -100,6 +102,8 @@ const Home = () => {
         </Box>
         </Box>
         </Box>
+        <Footer/>
+        </div>
     );
 
 };
