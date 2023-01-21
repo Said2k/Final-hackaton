@@ -57,20 +57,21 @@ export default function Register() {
     }
 
   return (
-    <div className='regist-block'>
+    
+      <div className='auth__block'>
     <ThemeProvider theme={theme}>
       <Container className='auth-box' component="main" maxWidth="xs">
         {error ? <Alert severity='error'>{error}</Alert> : null}
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 6,
+            marginTop: 7,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 5, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -118,21 +119,27 @@ export default function Register() {
               label="Remember me"
             />
             <Button
+            id='auth__button'
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2, backgroundColor: '#fff', color: 'black', border: '1px solid #1976d2' }}
+              sx={{ mt: 3, mb: 2 }}
               onClick={()=> handleSave()}
             >
               Регистрация
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="/forgot" variant="body2">
+                <Link 
+                  sx={{textDecoration: 'none', color: 'black'}}
+                href="/forgot" variant="body2">
+                  
                   Забыли пароль?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/login" variant="body2">
+                <Link
+                sx={{textDecoration: 'none', color: 'black'}}
+                href="/login" variant="body2">
                   {"Есть аккаунт? Войти"}
                 </Link>
               </Grid>
@@ -140,8 +147,9 @@ export default function Register() {
           </Box>
         </Box>
       </Container>
-      <canvas id="c"></canvas>
+    
     </ThemeProvider>
     </div>
+    
   );
 }

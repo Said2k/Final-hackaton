@@ -6,10 +6,15 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
 
+
+
+
 const Footer = () => {
 	return (
+		
 		<div className='footer'>
-			<div className='footer-h2'>
+
+<div className='footer-h2'>
 				<BoltOutlinedIcon/>
 				<h2>NurExpress</h2>
 				</div>
@@ -41,7 +46,10 @@ const Footer = () => {
 						</ul>
 					</div>
 				</div>
-		</div>
+				</div>
+
+	
+	
 	);
 };
 

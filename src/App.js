@@ -19,7 +19,6 @@ const App = () => {
           <FavoritesContextProvider>
       <Navbar/>
       <Routing />
-      <Footer/>
       </FavoritesContextProvider>
       </CommContextProvider>
       </OrgaContextProvider>
