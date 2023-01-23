@@ -71,7 +71,7 @@ export default function Login() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          <Avatar sx={{ m: 5, bgcolor: "secondary.main" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -108,21 +108,27 @@ export default function Login() {
               label="Remember me"
             />
             <Button
+              id='auth__button'
+
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ mt: 3, mb: 2,}}
               onClick={handleSave}
             >
               Войти
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="/forgot" variant="body2">
+                <Link
+                sx={{textDecoration: 'none', color: 'black'}}
+                href="/forgot" variant="body2">
                   Забыли пароль?
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/register" variant="body2">
+                <Link
+                 sx={{textDecoration: 'none', color: 'black'}}
+                href="/register" variant="body2">
                   {"Нет аккаунта? создайте!"}
                 </Link>
               </Grid>

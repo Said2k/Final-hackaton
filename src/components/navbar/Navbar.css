@@ -1,0 +1,19 @@
+.navbar{
+    /* background: rgb(232,140,26);
+background: linear-gradient(90deg, rgba(232,140,26,1) 33%, rgba(238,221,14,0.6474964985994398) 100%) !important; */
+background: rgb(232,140,26);
+background: linear-gradient(90deg, rgba(232,140,26,0) 33%, rgba(238,221,14,0) 100%) !important;
+width: 80vw !important;
+border-bottom-left-radius: 20px;
+border-bottom-right-radius: 20px;
+color: black !important;
+
+}
+.navbar-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#navbar-links button{
+    color: black !important;
+}

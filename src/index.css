@@ -1,0 +1,12 @@
+body{
+    /* background: rgb(232,140,26);
+    background: linear-gradient(90deg, rgba(232,140,26,1) 33%, rgba(238,221,14,0.6474964985994398) 100%); */
+    /* background: #FFD600; */
+    /* background: #fce300; */
+padding: 0;
+margin: 0;
+}
+*{
+    font-family: 'Bebas Neue', cursive;
+font-family: 'Inter', sans-serif;
+}
