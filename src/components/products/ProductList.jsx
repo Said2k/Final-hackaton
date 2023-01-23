@@ -1,6 +1,8 @@
 import { Box, CardMedia } from '@mui/material';
 import React from 'react';
 import FavoritesSidebar from '../favorites/FavoritesSidebar';
+
+
 import { useEffect } from 'react';
 import { useOrgaContext } from '../../Context/organContext';
 import Footer from '../footer/Footer';
