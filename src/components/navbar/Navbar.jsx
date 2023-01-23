@@ -14,12 +14,29 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
 import '../navbar/Navbar.css'
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../Context/authContext';
 
-const pages = ['Продукты', 'О нас', 'Блог'];
-const settings = ['Профиль', 'Аккаунт', 'Выйти'];
+
+const pages = [
+  {name: "Продукты", link: "/products", id: 1},
+  {name: "О нас", link: "/list", id: 2},
+  {name: "Блог", link: "/aboutus", id:3}
+];
 
 
 function Navbar() {
+  const navigate = useNavigate()
+
+  const { user, checkAuth, logout } = useAuth()
+
+  React.useEffect(() => {
+    // проверка токена на действительность
+    if (localStorage.getItem("token")) {
+      checkAuth();
+    }
+  }, []);
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -36,6 +53,12 @@ function Navbar() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const buttonsStyle = {
+    color: "white",
+    display: "block",
+    textTransform: "capitalize",
   };
 
   return (
@@ -95,8 +118,12 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem  key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.id} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center"                 onClick={()=> {
+                  // тут ставим ссылки
+                  handleCloseNavMenu()
+                  navigate(page.link)
+                }} >{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -121,18 +148,24 @@ function Navbar() {
             F-E
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: "center", justifyContent: "space-around" } }}>
-            {pages.map((page) => (
+          {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.id}
+                onClick={()=> {
+                  // тут ставим ссылки
+                  handleCloseNavMenu()
+                  navigate(page.link)
+                }}
                 sx={{ my: 2, color: 'black', display: 'block' }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
+              {user ? (
+                <>
+                <Typography sx={{ alignSelf: "center", marginRight: "10px" }}>{user}</Typography>
+                <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -153,14 +186,23 @@ function Navbar() {
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              >
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center" onClick={logout}>Logout</Typography>
                 </MenuItem>
-              ))}
             </Menu>
           </Box>
+          </>
+              ) : (
+                <Box sx={{ display: "flex" }}>
+                <Button sx={buttonsStyle} onClick={() => navigate("/login")}>
+                  Login
+                </Button>
+                <Button sx={buttonsStyle} onClick={() => navigate("/register")}>
+                  Register
+                </Button>
+              </Box>
+              )}
         </Toolbar>
       </Container>
     </AppBar>
