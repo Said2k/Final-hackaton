@@ -1,15 +1,29 @@
-import React from 'react';
+
+import React from "react";
 import Footer from './components/footer/Footer';
 import Navbar from './components/navbar/Navbar';
-import Routing from './routes/Routing';
+import AuthContextProvider from "./Context/authContext";
+import CommContextProvider from "./Context/commContext";
+import FavoritesContextProvider from "./Context/favorite";
+import OrgaContextProvider from "./Context/organContext";
+import ProductContextProvider from "./Context/productContext";
+import Routing from "./routes/Routing";
 
 const App = () => {
   return (
-    <div>
+
+    <AuthContextProvider>
+      <ProductContextProvider>
+        <OrgaContextProvider>
+         <CommContextProvider>
+          <FavoritesContextProvider>
       <Navbar/>
-      <Routing/>
-      <Footer/>
-    </div>
+      <Routing />
+      </FavoritesContextProvider>
+      </CommContextProvider>
+      </OrgaContextProvider>
+      </ProductContextProvider>
+    </AuthContextProvider>
   );
 };
 

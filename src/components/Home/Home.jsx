@@ -1,12 +1,16 @@
 import { Box } from '@mui/system';
 import React from 'react';
-import '../Home/Home.css';
+import './home.css'
 import HomeCard from './HomeCards';
 import SideBar from './SideBar';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
+import Footer from '../footer/Footer';
 const Home = () => {
+   
+
     return (
+        <div>
         <Box className="homepage-main">
             <Box className='home-block1'>
                 {/* <h1 '>ПОЛУЧАЙ И ЗАРАБАТЫВАЙ ВМЕСТЕ С НАМИ</h1> */}
@@ -40,7 +44,7 @@ const Home = () => {
             
         </div>
         </Box>
-        <Box className="block3">
+        {/* <Box className="block3"> */}
         <Box className="home-page-block3">
         <div className="block3-elem">
             <img width="400px" src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/dd109bb1f7572eed.png" alt="" />
@@ -57,7 +61,7 @@ const Home = () => {
             <h2>Стань курьером и зарабатывай</h2>
             <button className='block3-btn'> <span>Начать зарабатывать</span> </button>
         </div>
-        </Box>
+        {/* </Box> */}
         </Box>
 
         
@@ -99,7 +103,10 @@ const Home = () => {
         </Box>
         </Box>
         </Box>
+        <Footer/>
+        </div>
     );
+
 };
 
 export default Home;

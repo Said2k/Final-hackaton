@@ -44,25 +44,27 @@ function Navbar() {
     <AppBar className='navbar' position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <BoltOutlinedIcon sx={{color:"white", display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* <BoltOutlinedIcon sx={{color:"white", display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+          
           <Typography
             variant="h6"
             noWrap
             component="a"
             href="/"
             sx={{
-              mr: 2,
+              ml: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
               
-              color: 'white',
+              color: 'black',
               textDecoration: 'none',
             }}
           >
-            FreeExpress
+            FREE
+            
           </Typography>
-
+        <img width="80px" src="https://img.icons8.com/color/512/express.png" alt="" />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
