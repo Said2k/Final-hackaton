@@ -118,6 +118,39 @@ const OrgaContextProvider =({children})=>{
     }
 
 
+    const likeOrga = async (id) =>{
+        try {
+            const token = JSON.parse(localStorage.getItem('token'))
+            const Authorization = `Bearer ${token.access}`
+            const config = {
+                headers:{
+                    Authorization,
+                }
+            }
+            const res =await axios.post(`${API}${id}/like/`,{},config)
+            console.log(res);
+            getOrga()
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const ratingOrga = async (id) =>{
+        try {
+            const token = JSON.parse(localStorage.getItem('token'))
+            const Authorization = `Bearer ${token.access}`
+            const config = {
+                headers:{
+                    Authorization,
+                }
+            }
+            const res =await axios.post(`${API}${id}/rating/`,{value: 3},config)
+            console.log(res);
+            getOrga()
+        } catch (error) {
+            console.log(error);
+        }
+    }
    
 
     
@@ -127,6 +160,8 @@ const OrgaContextProvider =({children})=>{
         getOneOrga,
         editOrga,
         deleteOrga,
+        likeOrga,
+        ratingOrga,
 
 
         orgaProducts: state.orgaProducts,

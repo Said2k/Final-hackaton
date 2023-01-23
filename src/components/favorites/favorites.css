@@ -1,0 +1,153 @@
+.fav__grid{
+    padding: 10px;
+
+}
+.fav-paper{
+
+}
+.fav-paper__block{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+}
+.fav-paper__img{
+width: 7vw;
+height: 10vh;
+background-position: center;
+background-size: 100%;
+background-repeat: no-repeat;
+}
+.fav-paper__text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+.fav-paper__text-orga{
+font-size: 90%;
+width: 100%;
+font-weight: 600;
+}
+.fav-paper__text-title{
+    font-size: 73%;
+    margin: 0;
+    
+}
+.fav-paper__text-price{
+    font-size: 85%;
+    margin: 0;
+    color: black;
+    font-weight: 700;
+
+}
+#fav-paper__btn {
+    width: 85%;
+    margin: 7px 0 ;
+    font-size: 60%; 
+    border: 1px solid #3498db;
+    padding: 6px 8px;
+    background-color: transparent;
+    color: #3498db;
+    border-radius: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+#fav-paper__btn:hover{
+    border: 1px solid #fff;
+    background-color: #3498db;
+    color: #fff;
+
+}
+
+
+/* ! ============ ADAPTIVE START =============== */
+
+
+@media all and (max-width: 1025px){
+    
+    .fav-paper__block{
+        gap: 3px;
+
+    }
+    #fav-paper__btn{
+        font-size: 30%;
+    }
+    .fav-paper__text{
+        width: 70%;
+    }
+    .fav-paper__text-title{
+        font-size: 55%;
+    }
+    .fav-paper__text-orga{
+        font-size: 65%;
+    }
+    .fav-paper__text-price{
+        font-size: 70%;
+    }
+
+  
+}
+
+@media all and (max-width: 769px){
+
+    #fav-paper__btn{
+        font-size: 30%;
+    }
+    .fav-paper__text{
+        width: 60%;
+    }
+    .fav-paper__text-title{
+        font-size: 45%;
+    }
+    .fav-paper__text-orga{
+        font-size: 55%;
+    }
+    .fav-paper__text-price{
+        font-size: 57%;
+    }
+  
+}
+@media all and (max-width: 426px){
+    .fav__grid{
+        padding: 5px;
+    
+    }
+   
+    .fav-paper__block{
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+
+    }
+    .fav-paper__img{
+        width: 100%;
+        height: 55px;
+    }
+    #fav-paper__btn{
+        width: 45px ;
+        padding: 3px;
+        font-size: 3px;
+    }
+ 
+  
+    .fav-paper__text{
+        width: 100%;
+        gap: 4px;
+    }
+    .fav-paper__text-title{
+        font-size: 35%;
+    }
+    .fav-paper__text-orga{
+        font-size: 48%;
+    }
+    .fav-paper__text-price{
+        font-size: 40%;
+    }
+  
+}
+
+
+/* ! ============ ADAPTIVE END =============== */

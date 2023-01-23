@@ -7,6 +7,7 @@ import ForgotActivity from '../components/auth/ForgotActivity';
 import HomePage from '../Page/HomePage';
 import LoginPage from '../Page/LoginPage';
 import RegisterPage from '../Page/RegisterPage';
+import Busket from '../components/Busket/Busket';
 
 const Routing = () => {
     return (
@@ -17,6 +18,7 @@ const Routing = () => {
            <Route path='/products' element={<ProductList/>}/>
            <Route path='/forgot' element={<Forgot/> }/> 
            <Route path='/forgotActivity' element={<ForgotActivity/> }/> 
+           <Route path='/busket' element={<Busket/> }/> 
         </Routes>
     );
 };
