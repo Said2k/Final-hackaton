@@ -9,6 +9,11 @@ import LoginPage from '../Page/LoginPage';
 import RegisterPage from '../Page/RegisterPage';
 import MysteryBookCard from '../components/ProductCard/Card';
 
+import Busket from '../components/Busket/Busket';
+import AboutUs from '../components/aboutUs/AboutUs';
+import Menu from '../components/menu/Menu';
+import AddOrga from '../components/products/AddOrga';
+
 const Routing = () => {
     return (
         <Routes>
@@ -20,6 +25,11 @@ const Routing = () => {
            <Route path='/forgotActivity' element={<ForgotActivity/> }/> 
            <Route path='/credit' element={<PaymentForm/> }/> 
            <Route path='/detailOrg/:id' element={<MysteryBookCard/> }/> 
+
+           <Route path='/busket' element={<Busket/> }/> 
+           <Route path='/aboutus' element={<AboutUs/>}/>
+           <Route path='/menu' element={<Menu/>}/>
+           <Route path='/add-orga' element={<AddOrga/> }/>
         </Routes>
     );
 };
