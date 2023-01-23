@@ -1,6 +1,6 @@
 import { Box } from '@mui/system';
 import React from 'react';
-import '../Home/Home.css';
+import './home.css'
 import HomeCard from './HomeCards';
 import SideBar from './SideBar';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
@@ -44,7 +44,7 @@ const Home = () => {
             
         </div>
         </Box>
-        
+        {/* <Box className="block3"> */}
         <Box className="home-page-block3">
         <div className="block3-elem">
             <img width="400px" src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/dd109bb1f7572eed.png" alt="" />
@@ -61,6 +61,7 @@ const Home = () => {
             <h2>Стань курьером и зарабатывай</h2>
             <button className='block3-btn'> <span>Начать зарабатывать</span> </button>
         </div>
+        {/* </Box> */}
         </Box>
 
         
