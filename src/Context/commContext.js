@@ -121,6 +121,9 @@ const CommContextProvider = ({ children }) => {
     deleteComm,
     getOneComment,
     editComm,
+
+    commProducts: state.commProducts,
+    oneProductComm: state.oneProductComm,
   };
   return <commContext.Provider value={values}>{children}</commContext.Provider>;
 };

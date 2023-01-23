@@ -78,7 +78,7 @@ const AuthContextProvider = ({ children }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("username");
     setUser("");
-    navigate("/login");
+    navigate("/");
   }
   // восстановление пароля
   const getPassword = async (email) => {

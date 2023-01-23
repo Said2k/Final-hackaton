@@ -3,10 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 import ProductList from '../components/products/ProductList';
 import Forgot from '../components/auth/Forgot';
 import ForgotActivity from '../components/auth/ForgotActivity';
-
+import PaymentForm from '../components/CreditCard/Creadit';
 import HomePage from '../Page/HomePage';
 import LoginPage from '../Page/LoginPage';
 import RegisterPage from '../Page/RegisterPage';
+import MysteryBookCard from '../components/ProductCard/Card';
+
 import Busket from '../components/Busket/Busket';
 import AboutUs from '../components/aboutUs/AboutUs';
 import Menu from '../components/menu/Menu';
@@ -21,6 +23,9 @@ const Routing = () => {
            <Route path='/products' element={<ProductList/>}/>
            <Route path='/forgot' element={<Forgot/> }/> 
            <Route path='/forgotActivity' element={<ForgotActivity/> }/> 
+           <Route path='/credit' element={<PaymentForm/> }/> 
+           <Route path='/detailOrg/:id' element={<MysteryBookCard/> }/> 
+
            <Route path='/busket' element={<Busket/> }/> 
            <Route path='/aboutus' element={<AboutUs/>}/>
            <Route path='/menu' element={<Menu/>}/>
