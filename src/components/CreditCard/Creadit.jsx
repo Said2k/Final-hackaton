@@ -27,7 +27,7 @@ export default class PaymentForm extends React.Component {
     //   localStorage.removeItem("cart");
     // };
     return (
-      <div className="card">
+      <div className="credit-card__div">
       <div className='credit-card'>
       <div id="PaymentForm">
         <Cards
@@ -38,28 +38,28 @@ export default class PaymentForm extends React.Component {
           number={this.state.number}
         />
         <form>
-        	<input className='card-input'
+        	<input className='card-input__credit'
             type="tel"
             name="number"
             placeholder="Card Number"
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           />
-        	<input className='card-input'
+        	<input className='card-input__credit'
             type="tel"
             name="name"
             placeholder="name"
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           />
-        	<input className='card-input'
+        	<input className='card-input__credit'
             type="tel"
             name="expiry"
             placeholder="expiry"
             onChange={this.handleInputChange}
             onFocus={this.handleInputFocus}
           />
-        	<input  className='card-input'
+        	<input  className='card-input__credit'
             type="tel"
             name="cvc"
             placeholder="cvc"
