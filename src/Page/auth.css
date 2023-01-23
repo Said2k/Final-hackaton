@@ -1,120 +1,10 @@
-/* .gradient {
-	width: 100vw;
-	height: 100vh;
-	background: linear-gradient(334deg,#fce400,rgb(254, 255, 240), rgb(253, 255, 212), #fce400);
-	background-size: 180% 180%;
-	animation: gradient-animation 6s ease infinite;
-    margin-top: -130px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.auth__block {
-    position: absolute;
-}
-
-@keyframes gradient-animation {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 80%;
-	}
-	100% {
-		background-position: 100% 0%;
-	}
-} */
-
-
-/* 
-.body{
-    margin-top: -150px !important;
-    height:100vh;
-    width: 100%;
-    margin: 0;
-    --x: calc(var(--posX, 0) * 1px);
-    --y: calc(var(--posY, 0) * 1px);
-    background-image: 
-      linear-gradient(115deg, rgb(243, 243, 243),#8fd5d5), 
-      radial-gradient( 90% 100% at calc( 50% + var(--x)) calc( 0% + var(--y)),#faf44d, #8fd5d5), 
-      radial-gradient(100% 100% at calc( 80% - var(--x)) calc( 0% - var(--y)), #ffffff, #8fd5d5), 
-      radial-gradient(150% 210% at calc(100% + var(--x)) calc( 0% + var(--y)),#8fd5d5, #fff), 
-      linear-gradient(60deg, rgb(255, 249, 77), rgb(255, 252, 164));
-    background-blend-mode: overlay, overlay, difference, difference, difference, normal;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.8s;
-  }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  /* .body {
-    
-    overflow: hidden;
-  }
-  
-  .ocean { 
-    height: 5%;
-    width:100%;
-    position:absolute;
-    bottom:0;
-    left:0;
-    background: #015871;
-  }
-  
-  .wave {
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
-    position: absolute;
-    top: -198px;
-    width: 6400px;
-    height: 198px;
-    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
-    transform: translate3d(0, 0, 0);
-  }
-  
-  .wave:nth-of-type(2) {
-    top: -175px;
-    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
-    opacity: 1;
-  }
-  
-  @keyframes wave {
-    0% {
-      margin-left: 0;
-    }
-    100% {
-      margin-left: -1600px;
-    }
-  }
-  
-  @keyframes swell {
-    0%, 100% {
-      transform: translate3d(0,-25px,0);
-    }
-    50% {
-      transform: translate3d(0,5px,0);
-    }
-  } */
 
   .auth-box{
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     padding-bottom: 30px;
     border-radius: 15px;
     margin-bottom: 50px;
     position: relative;
+    
   } 
 
 
@@ -125,7 +15,7 @@
 
 .block__svg {
     position: absolute;
-    margin-top: 75px;
+    margin-top: 100px;
     top: 0;
     left: 0;
 width: 100%;
@@ -142,6 +32,7 @@ background-image: linear-gradient(to bottom, #fff, #fff);
     color: #3498db;
     border: 1px solid  #3498db;
     background-color: #fff;
+    border-radius: 20px;
 }
 
 #auth__button:hover{
@@ -149,5 +40,16 @@ background-image: linear-gradient(to bottom, #fff, #fff);
     color: white;
     
 }
+
+.input__auth{
+border-radius: 20px;
+box-shadow: rgb(26, 36, 45) 0px 10px 30px -10px;
+border: none;
+width: 100%;
+height: 50px;
+margin-top: 20px;
+text-align: center;
+}
+
 
   
