@@ -38,9 +38,6 @@ const FavoritesSidebar = () => {
                         </div>
                     </div>
                     <button id='fav-paper__btn'>Добавить в корзину</button>
-                    <button onClick={()=>likeOrga(7)} id='fav-paper__btn'> like</button>
-                    <button onClick={()=>ratingOrga(2)} id='fav-paper__btn'> rating</button>
-                    <button onClick={()=>getOrga(7)} id='fav-paper__btn'> get</button>
                 </Paper>
                 <Paper className='fav-paper' sx={{height: 'auto%'}}>
                     <div className='fav-paper__block'>

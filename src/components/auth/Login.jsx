@@ -46,7 +46,7 @@ export default function Login() {
   
 
   return (
-    <div className='regist-block'>
+    <div  className='regist-block'>
     <ThemeProvider theme={theme}>
       <Container  className='auth-box' component="main" maxWidth="xs">
         {error ? <Alert severity="error">{error}</Alert> : null}

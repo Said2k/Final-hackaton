@@ -22,7 +22,6 @@ const Routing = () => {
            <Route path='/forgot' element={<Forgot/> }/> 
            <Route path='/forgotActivity' element={<ForgotActivity/> }/> 
            <Route path='/busket' element={<Busket/> }/> 
-
            <Route path='/aboutus' element={<AboutUs/>}/>
            <Route path='/menu' element={<Menu/>}/>
            <Route path='/add-orga' element={<AddOrga/> }/>
