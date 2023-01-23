@@ -7,7 +7,7 @@ import PaymentForm from '../components/CreditCard/Creadit';
 import HomePage from '../Page/HomePage';
 import LoginPage from '../Page/LoginPage';
 import RegisterPage from '../Page/RegisterPage';
-import MysteryBookCard from '../components/ProductCard/Card';
+import MysteryBookCard from '../components/DetailOrg/MysteryBookCard';
 
 const Routing = () => {
     return (
