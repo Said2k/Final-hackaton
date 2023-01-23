@@ -14,6 +14,8 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Alert } from "@mui/material";
 import { useAuth } from "../../Context/authContext";
+import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
+
 
 function Copyright(props) {
   return (
@@ -116,25 +118,38 @@ export default function Forgot() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 5, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
+           <div style={{display: 'flex', margin: '30px 0',}}>
+          <BoltOutlinedIcon sx={{color:"black", height: '50px',display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              fontSize: '30px',
+              color: 'black',
+              textDecoration: 'none',
+            }}
+          >
+            FreeExpress
+          </Typography>
+          </div>
           <Typography component="h1" variant="h5">
             Восстановление аккаунта
           </Typography>
           <Box component="form" noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Почта"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+             <input 
+             value={email}
+             name="email"
+             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Почта*" className="input__auth"
+             type="text" 
+             id="email"
+             style={{margin: '30px 0'}} />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"

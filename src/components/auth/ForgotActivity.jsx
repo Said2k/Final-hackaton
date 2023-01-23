@@ -14,6 +14,8 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Alert } from "@mui/material";
 import { useAuth } from "../../Context/authContext";
+import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
+
 
 function Copyright(props) {
   return (
@@ -120,49 +122,53 @@ s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 5, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
+            <div style={{display: 'flex', margin: '30px 0',}}>
+          <BoltOutlinedIcon sx={{color:"black", height: '50px',display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              fontSize: '30px',
+              color: 'black',
+              textDecoration: 'none',
+            }}
+          >
+            FreeExpress
+          </Typography>
+          </div>
           <Typography component="h1" variant="h5">
             Активация ключа
           </Typography>
           <Box component="form" noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={key}
+             <input 
+             name="email"
+             value={key}
               onChange={(e) => setKey(e.target.value)}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Password"
-              name="email"
-              autoComplete="email"
-              autoFocus
+            placeholder="Код активации*" className="input__auth"
+             type="text" 
+             id="email" />
+               <input 
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Password Confirm"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={passwordConfirm}
-              onChange={(e) => setPasswordConfirm(e.target.value)}
-            />
+              onChange={(e)=> setPassword(e.target.value)}
+            placeholder="Новый пароль*" className="input__auth" 
+            type="password"
+             name="password"
+             id="password" />
+             <input 
+               value={passwordConfirm}
+               onChange={(e)=> setPasswordConfirm(e.target.value)}
+             type="password"
+            placeholder="Подтверждение пароля*" 
+            style={{marginBottom: '10px'}} 
+            className="input__auth"  
+            name="password-confirm"
+            id="password-confirm" />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"

@@ -12,28 +12,12 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Alert } from "@mui/material";
+import { Alert, createMuiTheme, unstable_createMuiStrictModeTheme } from "@mui/material";
 import { useAuth } from "../../Context/authContext";
+import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
 
 
-function Copyright(props) {
-  return (
-    
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+
 
 
 const theme = createTheme();
@@ -57,6 +41,10 @@ export default function Login() {
     login(formData, email);
   }
 
+
+
+  
+
   return (
     <div className='regist-block'>
     <ThemeProvider theme={theme}>
@@ -71,38 +59,40 @@ export default function Login() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 5, bgcolor: "secondary.main" }}>
-            <LockOutlinedIcon />
-          </Avatar>
+          <div style={{display: 'flex', margin: '30px 0',}}>
+          <BoltOutlinedIcon sx={{color:"black", height: '50px',display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Typography
+            variant="h6"
+            noWrap
+            component="a"
+            href="/"
+            sx={{
+              mr: 2,
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              fontSize: '30px',
+              color: 'black',
+              textDecoration: 'none',
+            }}
+          >
+            FreeExpress
+          </Typography>
+          </div>
           <Typography component="h1" variant="h5">
             Войти
           </Typography>
           <Box component="form" noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Почта"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Пароль"
-              type="password"
-              id="password"
-              autoComplete="current-password"
+
+            <input 
+             value={email}
+             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Почта*" className="input__auth" type="text" name="" id="" />
+            <input 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-            />
-
+             type="password"
+            placeholder="Пароль" style={{marginBottom: '30px'}} className="input__auth"  name="" id="" />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
