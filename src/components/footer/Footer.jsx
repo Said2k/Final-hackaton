@@ -15,8 +15,9 @@ const Footer = () => {
 		<div className='footer'>
 
 <div className='footer-h2'>
-				<BoltOutlinedIcon/>
-				<h2>NurExpress</h2>
+		<h2>FREE</h2>
+<img width="80px" src="https://img.icons8.com/color/512/express.png" alt="" />
+				
 				</div>
 				<div className="footer-links">
 					<div >

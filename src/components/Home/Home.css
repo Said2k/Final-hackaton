@@ -2,6 +2,34 @@
     width: 100vw;
 }
 
+/* ! block1 start */
+.home-block1{
+    background-image: url(https://i.fbcd.co/products/original/cca6d49206c0af6284a9b1c8baf8393c09ed5e2dc8fbf6a19ade37ace00e9a21.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100vw;
+    margin-top: -95px;
+}
+.home-page-block1{
+    
+    width: 100vw;
+    height: 700px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+  
+}
+
+#home-page-h1{
+    font-size: 40px;
+    text-align: center;
+
+}
+/* ! block1 end*/
+
+
 /* ! block2 start */
 .home-page-block2{
     display: flex;
@@ -53,8 +81,11 @@ background: rgb(215,215,215);
 background: linear-gradient(90deg, rgba(215,215,215,0.5102415966386555) 100%, rgba(183,252,0,1) 100%);
 
 }
+.sidebar{
+    background: rgb(232,140,26);
+    background: linear-gradient(90deg, rgba(232,140,26,0) 33%, rgba(238,221,14,0) 100%) !important;
+}
 
-/* !block2 end  */
 
 /* ? homecards */
 .home-cards-box{
@@ -76,38 +107,11 @@ border-top-right-radius: 10px !important;
     padding: 10px;
     
 }
-/* ? homecards */
-.sidebar{
-    background: rgb(232,140,26);
-    background: linear-gradient(90deg, rgba(232,140,26,0) 33%, rgba(238,221,14,0) 100%) !important;
-}
+/* ? homecards end */
 
-/* ! block1 start */
-.home-block1{
-    background-image: url(https://i.fbcd.co/products/original/cca6d49206c0af6284a9b1c8baf8393c09ed5e2dc8fbf6a19ade37ace00e9a21.jpg);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    width: 100vw;
-    margin-top: -95px;
-}
-.home-page-block1{
-    
-    width: 100vw;
-    height: 700px !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-  
-}
+/* !block2 end  */
 
-#home-page-h1{
-    font-size: 40px;
-    text-align: center;
 
-}
-/* ! block1 end*/
 
 
 
@@ -193,14 +197,17 @@ border-top-right-radius: 10px !important;
 
 
 /* ! block3 */
+.block3{
+  width: 100vw;
+}
 .home-page-block3{
-    background-image: url(../Home/wave\ \(5\).svg);
+    background-image: url(../Home/wave\ \(10\).svg);
     background-repeat: no-repeat;
     display: flex;
     width: 100vw;
     background-color: white;
     justify-content: space-around;
-    height: 600px;
+    height: 50%;
     align-items: center;
 }
 .block3-elem{
@@ -300,8 +307,14 @@ border-top-right-radius: 10px !important;
 
 
  /* ! block4 */
+
+ /* .block4{
+  
+    width: 100vw;
+    height: 100vh;
+ } */
 .home-page-block4{
-    background-image: url(../Home/wave\ \(6\).svg);
+    background-image: url(../Home/wave\ \(8\).svg);
     background-repeat: no-repeat;
     background-color: white;
     width: 100vw;
