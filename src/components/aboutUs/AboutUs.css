@@ -150,7 +150,10 @@
       40% 65%
     );
   }
-  
+  .aboutus{
+    width: 100%;
+
+  }
   .aboutus-block1{
     margin-top: 10px;
     display: flex;
@@ -192,4 +195,26 @@ background: linear-gradient(90deg, rgba(219,219,212,0.5662640056022409) 100%, rg
   .aboutus-h1{
     font-size: 25px;
     text-align: center;
+  }
+
+  .aboutus-block2{
+    width: 100%;
+    background: #fffb20;
+  }
+  .aboutus-block2-elems{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  #aboutus-block2-elem{
+   width: 30%;
+  }
+
+  .aboutus-block2-elem span{
+    width: 300px;
+  }
+  .aboutus-block2-h2{
+    text-align: center;
+    font-size: 25px;
   }

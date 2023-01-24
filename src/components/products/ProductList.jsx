@@ -21,9 +21,8 @@ const ProductList = ({item}) => {
             <div class="lsacetug_dolponaxed">
   <h3>Категории</h3>
   <ul>
-    <li><a href="">Рестораны</a></li>
-    <li><a href="">Фастфуды</a></li>
-    <li><a href="">Кофейни</a></li>
+    <li><a href="">Еда</a></li>
+    <li><a href="">Товары</a></li>
     <li><a href="">Магазины</a></li>
     <li><a href="">Прочее</a></li>
   </ul>
@@ -35,7 +34,7 @@ const ProductList = ({item}) => {
                     <ProductCard item={item} key={item.id}/>
                 ))}
             </div>
-            <div className='product-list-right'>Favorite
+            <div className='product-list-right'>Избранное
            
             <FavoritesSidebar/>
 

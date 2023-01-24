@@ -1,8 +1,8 @@
 #product-list{
     margin-top: 20px;
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 .product-card{
     width: 20vw;
@@ -16,7 +16,7 @@
 
 
 .product-list-left{
-width: 15% ;
+width: 16% ;
 height: 100%;
 border: 1px #fce300 solid;
 border-radius: 5px;
@@ -30,7 +30,7 @@ margin-left: 30px;
    display: flex;
    flex-wrap: wrap;
    justify-content: space-around;
-    width: 70%;
+    width: 69%;
     height: 100%;
     border: 1px #fce300 solid;
     border-radius: 5px;
@@ -43,8 +43,7 @@ margin-left: 30px;
 
     border: 1px #fce300 solid;
     border-radius: 5px;
-    background: rgb(215,215,215);
-    background: linear-gradient(90deg, rgba(215,215,215,0.5102415966386555) 100%, rgba(183,252,0,1) 100%);
+  
     text-align: center;
     margin-right: 30px;
 }
@@ -117,6 +116,8 @@ margin-left: 30px;
     background: rgb(152,147,147);
 background: linear-gradient(90deg, rgba(152,147,147,0.4514180672268907) 100%, rgba(177,177,176,0.5186449579831933) 100%);
 border: 1px white;
+color: black;
+font-size: 17px;
 }
 .icons button:hover{
     width: 80px;
@@ -125,16 +126,22 @@ border: 1px white;
 background: linear-gradient(90deg, rgba(170,166,166,0.6811099439775911) 100%, rgba(177,177,176,0.7595413165266106) 100%);
 border: 1px white;
 font-size: bold;
+cursor: pointer;
 ;
 }
 .icons a:hover{
     color: white;
 }
+.icons a{
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
 /* !PRODUCT CARDS end */
 
 /* ! filter start */
 .lsacetug_dolponaxed {
-    background: #f5f2f2;
+    background: white;
     width: 95%;
     box-shadow: 2px 2px 8px rgba(23, 22, 22, 0.1);
   padding: 5px;
@@ -182,7 +189,37 @@ font-size: bold;
   transition: .2s linear;
 }
 .lsacetug_dolponaxed a:hover {
-    background: #e6d70cda;
+    background: #fde718;
     color: #efecec;
 }
 /* ! filter end */
+
+.product-card-icons:hover{
+color: white;
+cursor: pointer;
+
+}
+
+
+@media only screen and (max-width: 425px){
+  .card{
+    width: 200px;
+    height: 250px;
+  }
+  #product-list{
+    display: flex;
+    flex-wrap: wrap;  
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    
+  }
+.product-list-left{
+  width: 20%;
+  margin-right: 7px;
+}
+.product-list-right{
+  margin-top: 20px;
+  width: 60%;
+}
+}

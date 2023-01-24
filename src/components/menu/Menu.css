@@ -10,6 +10,9 @@ height: 80vh;
 display: flex;
 flex-direction: column;
 justify-content: space-around;
+align-items: center;
+border: 1px solid #fffb20 ;
+border-radius: 5px;
 }
 .menu-navigation a{
     text-decoration: none;
@@ -37,6 +40,11 @@ justify-content: space-evenly;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     width: 30%;
     height: auto;
+}
+.menu-card:hover{
+    width: 32%;
+    height: 325px;
+
 }
 .menu-btn-cart{
     display: flex;
