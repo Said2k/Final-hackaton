@@ -54,7 +54,7 @@ export default function ForgotActivity() {
     formData.append("activation_code", key)
     formData.append("password", password)
     formData.append("password_confirm", passwordConfirm)
-    postActivity(key, formData)
+    postActivity(formData)
 
   }
 

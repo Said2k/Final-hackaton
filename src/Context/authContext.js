@@ -10,8 +10,35 @@ const API = "http://34.134.203.27/users/";
 const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState("");
   const [error, setError] = useState("");
-
+  // npm run build появляется папка build
+  // npm install -g firebase-tools
+  // firebase login
+  // высветится почта в браузере
+  // firebase init
+  // выбираем самый первый hosting
+  // use an existing project
+  // выбираем наш проект
+  // build
+  // firebase deploy
   const navigate = useNavigate();
+
+  //  пополнение баланса
+  const balance = async (formData) => {
+    try {
+      const token = JSON.parse(localStorage.getItem("token"));
+      const Authorization = `Bearer ${token.access}`;
+      const config = {
+        headers: {
+          Authorization,
+        },
+      };
+      const res = await axios.patch(`${API}balance/`, formData, config);
+      console.log(res);
+    } catch (error) {
+      console.log(error.response.data.detail);
+      setError(error.response.data.detail);
+    }
+  };
 
   // регистрация
   const register = async (formData) => {
@@ -83,16 +110,16 @@ const AuthContextProvider = ({ children }) => {
   // восстановление пароля
   const getPassword = async (email) => {
     try {
-      await axios(`${API}forgot/?email=${email}`);
+      await axios(`${API}send-forgot/?email=${email}`);
       navigate("/forgotActivity");
     } catch (error) {
       console.log(error);
     }
   };
   // активация ключа
-  const postActivity = async (key, formData) => {
+  const postActivity = async (formData) => {
     try {
-      const res = await axios.post(`${API}accept/${key}/`, formData);
+      const res = await axios.post(`${API}reset-password/`, formData);
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -109,6 +136,7 @@ const AuthContextProvider = ({ children }) => {
     logout,
     getPassword,
     postActivity,
+    balance,
   };
 
   return <authContext.Provider value={values}>{children}</authContext.Provider>;
