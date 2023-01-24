@@ -7,13 +7,21 @@ import { useOrgaContext } from "../../Context/organContext";
 import "./MysteryBookCard.css";
 
 const MysteryBookCard = () => {
-    const {id} = useParams()
+    const {id} =useParams()
     const {user} = useAuth()
-    const {commProducts, deleteComm, getComm} = useComm()
+    const {commProducts, deleteComm, getComm,addComment} = useComm()
     const {getOneOrga, oneProductOrga} = useOrgaContext()
+    const [comment, setComment] = useState({
+        body: '',
+        organization: id,
+    })
+
     useEffect(()=>{
         getOneOrga(id)
-        getComm(2)
+    },[])
+    useEffect(()=>{
+        getComm(id)
+
     },[])
 
     return (
@@ -37,8 +45,8 @@ const MysteryBookCard = () => {
                     </div>
                 ))}
                 </Box>
-                <TextField id="standard-basic" label="Comments" variant="standard" sx={{marginTop: "10px"}}/>
-                <Button></Button>
+                <TextField value={comment.body} onChange={(e)=>setComment({...comment, body: e.target.value})} id="standard-basic" label="Comments" variant="standard" sx={{marginTop: "10px"}}/>
+                <Button onClick={()=>addComment(id, comment)}>Отправить</Button>
             </Box>
         </Box>
     )

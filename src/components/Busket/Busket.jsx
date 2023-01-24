@@ -6,6 +6,9 @@ import Paper from '@mui/material/Paper';
 import { Button, Grid, Table, TableBody, TableContainer, TableHead, TableRow } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import './busket.css'
+import { useBusket } from '../../Context/busket';
+import { useProducts } from '../../Context/productContext';
+import { useOrgaContext } from '../../Context/organContext';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -28,20 +31,18 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 export default function Busket() {
-// const {getCart, cart, changeProductCount, deleteCartProduct}= useBusket()
+const {getCart, cart, changeProductCount,deleteCartProduct}= useBusket()
+const {getOrga,orgaProducts} = useOrgaContext()
 const navigate = useNavigate()
 
 
-//   React.useEffect(() => {
-//     getCart();
-//   }, []);
+  React.useEffect(() => {
+    getCart();
+    getOrga()
+  }, []);
+  
 
-//   const resetCart = () => {
-//     localStorage.removeItem("cart");
-//     getCart();
-//   };
-
-//   console.log(cart);
+  console.log(cart);
   return (
     <TableContainer component={Paper} sx={{ borderRadius: "0%", mt: '30px' }}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -60,16 +61,18 @@ const navigate = useNavigate()
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* {cart?.products.map((row) => ( */}
+          {cart?.products.map((row) => (
+            
             <StyledTableRow className='block__body' key='1'>
               <StyledTableCell align='center' component="th" scope="row">
-                <img src='https://s82079.cdn.ngenix.net/295x0/114cojzbmxy1izytqqbkayjz1g8m' width="130px" />
+                <img src={row.item.cover} width="130px" />
               </StyledTableCell>
               <StyledTableCell sx={{ fontWeight: 600,}} align="center">
-               Крылышки баскет L
+              {row.item.title}
               </StyledTableCell>
-              <StyledTableCell align="center">KFC</StyledTableCell>
-              <StyledTableCell align="center">100$</StyledTableCell>
+               
+              <StyledTableCell align="center">{row.item.organization}</StyledTableCell>
+              <StyledTableCell align="center">{row.item.price}$</StyledTableCell>
   
               
               <StyledTableCell align="center">
@@ -77,29 +80,30 @@ const navigate = useNavigate()
                   type="number"
                   min={1}
                   max={1000}
-                //   value={row.count}
-                //   onChange={(e) =>
-                //     changeProductCount(e.target.value, row.item.id)
-                //   }
+                  value={row.count}
+                  onChange={(e) =>
+                    changeProductCount(e.target.value, row.item.id)
+                  }
                 />
               </StyledTableCell>
               <StyledTableCell sx={{ fontWeight: 600 }} align="center">
-                20000$
+                {row.subPrice}$
               </StyledTableCell>
               <StyledTableCell align="center">
-                <Button>
+                <Button onClick={()=>deleteCartProduct(row.item.id)}>
                   DELETE
                 </Button>
               </StyledTableCell>
             </StyledTableRow>
-          {/* ))} */}
+        
+            ))} 
         </TableBody>
       </Table>
       <Grid sx={{display:'flex', flexDirection: 'row-reverse'}}>
       <Button onClick={()=>{
         // resetCart()
-        navigate('/orders')
-      }}>Buy ALL 1000000$</Button>
+        navigate('/credit')
+      }}>{cart?.totalPrice}$</Button>
 
       </Grid>
     </TableContainer>

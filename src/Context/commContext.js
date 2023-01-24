@@ -41,6 +41,7 @@ const CommContextProvider = ({ children }) => {
         },
       };
       let res = await axios.post(`${API}${id}/comments/`, obj, config);
+      getComm(id)
       console.log(res);
     } catch (error) {
       console.log(error);
