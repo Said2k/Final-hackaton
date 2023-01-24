@@ -12,7 +12,7 @@ const AddOrga = () => {
   const [orga, setOrga] = useState({
     title: "",
     address: "",
-    phone_number: "",
+    phone: "",
     cover: "",
     category: "",
   });
@@ -21,7 +21,7 @@ const AddOrga = () => {
     let newProduct = new FormData()
     newProduct.append("title", orga.title)
     newProduct.append("address", orga.address)
-    newProduct.append("phone_number", orga.phone_number)
+    newProduct.append("phone", orga.phone)
     newProduct.append("cover", orga.cover)
     newProduct.append("category", orga.category)
 
@@ -61,9 +61,9 @@ const AddOrga = () => {
         label="Number"
         variant="outlined"
         name="price"
-        value={orga.phone_number}
+        value={orga.phone}
         onChange={(e) =>
-          setOrga((prev) => ({ ...prev, phone_number: e.target.value }))
+          setOrga((prev) => ({ ...prev, phone: e.target.value }))
         }
       />
       <TextField

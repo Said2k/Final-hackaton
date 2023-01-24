@@ -1,5 +1,7 @@
 import axios from 'axios'
 import react, { createContext, useContext, useReducer } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom';
+
 
 export const productContext = createContext()
 
@@ -34,6 +36,7 @@ const reducer = (state=INIT_STATE, action) =>{
 
 const ProductContextProvider = ({children}) =>{
     const [state, dispatch] = useReducer(reducer, INIT_STATE)
+  
 
 
 
@@ -134,7 +137,9 @@ const ProductContextProvider = ({children}) =>{
         }
         }
 
-   
+       
+
+
 
     
     const values = {
@@ -144,6 +149,7 @@ const ProductContextProvider = ({children}) =>{
         editProduct,
         deleteProduct,
         addFavorite,
+       
 
 
         product: state.products,
