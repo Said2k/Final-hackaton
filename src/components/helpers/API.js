@@ -1,0 +1,1 @@
+export const SWAGGER_API = 'http://34.134.203.27/' 

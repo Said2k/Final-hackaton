@@ -12,8 +12,7 @@ export const useFavorites = () =>{
 }
 
 const INIT_STATE = {
-    favorites_Id: [],
-    showFav: [],
+    favorites: [],
 
 }
 
@@ -21,11 +20,7 @@ const reducer = (state=INIT_STATE, action) =>{
     switch(action.type){
         case 'GET_FAVORITES':
             return {
-                ...state, favorites_Id: action.payload,
-            }
-            case 'SHOW_FAVORITES': 
-            return{
-                ...state, showFav: action.payload
+                ...state, favorites: action.payload,
             }
         default:
             return state
@@ -36,7 +31,6 @@ const reducer = (state=INIT_STATE, action) =>{
 
 const FavoritesContextProvider = ({children}) =>{
     const [state, dispatch] = useReducer(reducer,INIT_STATE)
-    const {getOneProduct, oneProduct} = useProducts()
 
 
 const getFavorites = async() =>{
@@ -60,28 +54,9 @@ const getFavorites = async() =>{
     }
 }
 
-
-
-    // const showFavorites =  async() =>{
-    //     await getFavorites()
-    //     console.log(oneProduct);
-
-    //     state.favorites_Id.map((item)=>{
-    //         getOneProduct(item.id, item.product)
-    //         dispatch({
-    //             type: 'SHOW_FAVORITES',
-    //             payload: oneProduct,
-    //         })
-    //     })
-    // }
-
-
-
-
 let values ={
     getFavorites,
-    // showFavorites,
-    favorites: state.favorites_Id,
+    favorites: state.favorites,
 }
 
 
