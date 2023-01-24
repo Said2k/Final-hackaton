@@ -11,17 +11,18 @@ import { Button } from '@mui/material';
 export default function ProductCard({item}) {
  const { likeOrga, deleteOrga } = useOrgaContext()
   const navigate = useNavigate()
+
   return (  
 <>
 <Card id="product-card" className="card card0" sx={{backgroundImage:`URL(${item.cover})`}}>
-  
-    <div className="border">
+    <div  onClick={()=>navigate(`/detailOrg/${item.id}`)} className="border">
       <h2>{item.title}</h2>
       <div className="icons">
      <Button><ThumbUpOffAltIcon onClick={()=> likeOrga(item.id)} className='product-card-icons' sx={{color: "black"}} />{item.likes}</Button>
      <Button><EditIcon className='product-card-icons' sx={{color: "black"}}/></Button>
      <Button><DeleteOutlineIcon onClick={()=> deleteOrga(item.id)} className='product-card-icons' sx={{color: "black"}}/></Button>
      <button className='product-card-icons' onClick={()=> navigate('/menu')} >МЕНЮ</button>
+
       </div>
     </div>
   </Card>

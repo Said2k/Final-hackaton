@@ -1,12 +1,15 @@
+import { Button } from '@mui/material';
 import React from 'react';
+import { useAuth } from '../../Context/authContext';
+import { useDell } from '../../Context/deliveryContext';
 import '../aboutUs/AboutUs.css'
 
 const AboutUs = () => {
     return (
         <div>
-           
 
-        <div className='aboutus'>
+
+            <div className='aboutus'>
             <div className='aboutus-h1'>
                 {/* <h1>Как это работает?</h1> */}
         <div class="background-one">
