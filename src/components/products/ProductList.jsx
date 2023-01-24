@@ -47,6 +47,7 @@ const ProductList = ({item}) => {
         <div id="product-list">
             <div className='product-list-left'>
             <div class="lsacetug_dolponaxed">
+
             <RadioGroup sx={{display: 'flex', flexDirection: 'row'}} onChange={(e)=>fetchByParams('category', e.target.value)}>
 
 <FormControlLabel value={'Еда'} control={<Radio/>} label={'Еда'}/>
@@ -56,6 +57,7 @@ const ProductList = ({item}) => {
 
 </RadioGroup>
  
+
 </div>
             </div>
             <div className='product-list-mid'>
@@ -70,7 +72,7 @@ const ProductList = ({item}) => {
                 page={currentPage}
                 />
             </div>
-            <div className='product-list-right'>Favorite
+            <div className='product-list-right'>Избранное
            
             <FavoritesSidebar/>
 

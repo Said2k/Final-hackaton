@@ -27,9 +27,9 @@ export default function HomeCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Взять заказ</Button>
-        <Button size="small">Больше информации</Button>
-        <Button size="small"><ShoppingCartCheckoutIcon/></Button>
+        <Button sx={{color: "black"}} size="small">Взять заказ</Button>
+        <Button sx={{color: "black"}} size="small">Больше информации</Button>
+        <Button sx={{color: "black"}} size="small"><ShoppingCartCheckoutIcon/></Button>
 
       </CardActions>
     </Card>
@@ -48,9 +48,9 @@ export default function HomeCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Взять заказ</Button>
-        <Button size="small">Больше информации</Button>
-        <Button size="small"><ShoppingCartCheckoutIcon/></Button>
+        <Button sx={{color: "black"}} size="small">Взять заказ</Button>
+        <Button sx={{color: "black"}} size="small">Больше информации</Button>
+        <Button sx={{color: "black"}} size="small"><ShoppingCartCheckoutIcon/></Button>
 
       </CardActions>
     </Card>
@@ -69,9 +69,9 @@ export default function HomeCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Взять заказ</Button>
-        <Button size="small">Больше информации</Button>
-        <Button size="small"><ShoppingCartCheckoutIcon/></Button>
+        <Button sx={{color: "black"}} size="small">Взять заказ</Button>
+        <Button sx={{color: "black"}} size="small">Больше информации</Button>
+        <Button sx={{color: "black"}} size="small"><ShoppingCartCheckoutIcon/></Button>
 
       </CardActions>
     </Card>

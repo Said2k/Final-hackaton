@@ -20,8 +20,7 @@ import { useAuth } from '../../Context/authContext';
 
 const pages = [
   {name: "Продукты", link: "/products", id: 1},
-  {name: "О нас", link: "/list", id: 2},
-  {name: "Блог", link: "/aboutus", id:3}
+  {name: "О нас", link: "/aboutus", id: 2},
 ];
 
 

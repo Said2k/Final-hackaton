@@ -6,33 +6,35 @@ import SideBar from './SideBar';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import Footer from '../footer/Footer';
+import { useNavigate } from 'react-router-dom'
 const Home = () => {
-   
 
+    const navigate = useNavigate()
     return (
         <div>
         <Box className="homepage-main">
             <Box className='home-block1'>
                 {/* <h1 '>ПОЛУЧАЙ И ЗАРАБАТЫВАЙ ВМЕСТЕ С НАМИ</h1> */}
             <Box className='home-page-block1'>
-                       <div>
+                       <div >
                         <h1 id='home-page-h1'>ПОЛУЧАЙ И ЗАРАБАТЫВАЙ ВМЕСТЕ С НАМИ</h1>
                         </div> 
                         <div className='block1'>
-                        <div>
+                        <div className='home-page-block1-buttons'>
                     <h2>Найти работу <DeliveryDiningIcon/></h2>
-                    <button class="button1">Submit</button>
+                    <button class="button1">Начать</button>
                 
                     </div>
-                <div>
+                <div className='home-page-block1-buttons'>
                     <h2>Сделать заказ <LocalDiningIcon/> </h2>
-                    <button class="button1">Submit</button>
+                    <button onClick={()=>navigate('/products')} class="button1">Заказать</button>
                     </div>
                             </div>   
                 
             </Box>
             </Box>
-        <Box className='home-page-block2'>
+            <Box className='home-page-h2-h2'><h2>НАЧНИ ЗАРАБАТЫВАТЬ С НАМИ</h2></Box>
+        <Box id="homepage-block2" className='home-page-block2'>
         <div className='home-lenta'>
             <div className='left-block'>
                 <SideBar/>
@@ -40,11 +42,16 @@ const Home = () => {
             <div className='mid-block'>
                 <HomeCard/>
             </div>
-            <div className='right-block'></div>
+            <div className='right-block'>
+
+            </div>
             
         </div>
         </Box>
         {/* <Box className="block3"> */}
+        <Box className='homepage-block3-h2'>
+            <h2>СТАНОВИСЬ ЧАСТЬЮ НАШЕЙ КОМПАНИИ</h2>
+        </Box>
         <Box className="home-page-block3">
         <div className="block3-elem">
             <img width="400px" src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/dd109bb1f7572eed.png" alt="" />

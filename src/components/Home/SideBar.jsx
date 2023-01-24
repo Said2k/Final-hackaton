@@ -20,8 +20,8 @@ import {
   
     return (
         <div >
-      <Grid item md={3}>
-        <Paper className="sidebar" elevation={5} sx={{ p: 2 }}>
+      <Grid className="sidebar" item md={3}>
+        <Paper  elevation={5} sx={{ p: 2 }}>
           <TextField sx={{color:"white"}}
             fullWidth
             id="input-with-icon-textfield"
