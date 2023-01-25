@@ -75,7 +75,7 @@ const DellContextProvider = ({ children }) => {
     }
   };
 
-  const addDellCarts = async (idOrg, newProduct) => {
+  const addDellCarts = async (delivery_pk, newProduct) => {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
       const Authorization = `Bearer ${token.access}`;
@@ -86,9 +86,9 @@ const DellContextProvider = ({ children }) => {
         },
       };
       const res = await axios.post(
-        `${API}${idOrg}/carts/`,
+        `${API}${delivery_pk}/carts/`,
         newProduct,
-        idOrg,
+        delivery_pk,
         config
       );
       console.log(res);

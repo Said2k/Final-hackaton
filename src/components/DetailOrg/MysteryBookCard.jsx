@@ -1,12 +1,13 @@
 import { Box, Button, Container, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../Context/authContext";
 import { useComm } from "../../Context/commContext";
 import { useOrgaContext } from "../../Context/organContext";
 import "./MysteryBookCard.css";
 
 const MysteryBookCard = () => {
+    const navigate = useNavigate()
     const {id} =useParams()
     const {user} = useAuth()
     const {commProducts, deleteComm, getComm,addComment} = useComm()
@@ -21,7 +22,6 @@ const MysteryBookCard = () => {
     },[])
     useEffect(()=>{
         getComm(id)
-
     },[])
 
     return (
@@ -29,7 +29,7 @@ const MysteryBookCard = () => {
             <Box className="block_detail" sx={{backgroundImage: `url(${oneProductOrga.cover})`}}>
 
                 <div class="content">
-                    <div class="blockText">{oneProductOrga.title}</div>
+                    <div class="blockText" onClick={()=> navigate(`/editOrg/${id}`)}>{oneProductOrga.title}</div>
                     <div class="blockText">{oneProductOrga.address}</div>
                     <div class="blockText">{oneProductOrga.phone_number}</div>
                 </div>
