@@ -65,7 +65,7 @@ const OrgaContextProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
-
+  }
     const getOneOrga = async (id) => {
       try {
         const res = await axios(`${API}${id}/`);
@@ -196,6 +196,6 @@ const OrgaContextProvider = ({ children }) => {
     return (
       <orgaContext.Provider value={values}>{children}</orgaContext.Provider>
     );
-  };
+  
 };
 export default OrgaContextProvider;
