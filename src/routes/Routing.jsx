@@ -12,6 +12,9 @@ import Busket from '../components/Busket/Busket';
 import AboutUs from '../components/aboutUs/AboutUs';
 import Menu from '../components/menu/Menu';
 import AddOrga from '../components/products/AddOrga';
+import EditOrga from '../components/products/EditOrga';
+import AddProduct from '../components/products/AddProduct';
+import EditProduct from '../components/products/EditProduct';
 
 const Routing = () => {
     return (
@@ -24,11 +27,13 @@ const Routing = () => {
            <Route path='/forgotActivity' element={<ForgotActivity/> }/> 
            <Route path='/credit' element={<PaymentForm/> }/> 
            <Route path='/detailOrg/:id' element={<MysteryBookCard/> }/> 
-
            <Route path='/busket' element={<Busket/> }/> 
            <Route path='/aboutus' element={<AboutUs/>}/>
            <Route path='/menu' element={<Menu/>}/>
            <Route path='/add-orga' element={<AddOrga/> }/>
+           <Route path='/add-prod/:id' element={<AddProduct/> }/>
+           <Route path='/editOrg/:id' element={<EditOrga/> }/> 
+           <Route path='/editProd/:id/:id2' element={<EditProduct/> }/> 
         </Routes>
     );
 };
