@@ -7,7 +7,7 @@ const Support = () => {
         const [searchParams, setSearchParams] = useSearchParams();
         const [searchProduct, setSearchProduct] = useState(searchParams.get('q')|| '')
 
-        const {search,searchProd} = useRecommend()
+        const {search,searchProd,} = useRecommend()
 
 
 

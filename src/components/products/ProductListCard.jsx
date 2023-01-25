@@ -11,6 +11,8 @@ import { Button } from '@mui/material';
 export default function ProductCard({item}) {
  const { likeOrga, deleteOrga } = useOrgaContext()
   const navigate = useNavigate()
+  
+  console.log(item)
 
   return (  
 <>

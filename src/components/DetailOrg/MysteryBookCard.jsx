@@ -1,38 +1,76 @@
-import { Box, Button, Container, TextField, Typography } from "@mui/material";
+import { Box, Button, Container, Paper, Rating, TextField, Typography } from "@mui/material";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../Context/authContext";
 import { useComm } from "../../Context/commContext";
 import { useOrgaContext } from "../../Context/organContext";
+import { useRecommend } from "../../Context/recommendation";
 import "./MysteryBookCard.css";
 
 const MysteryBookCard = () => {
     const navigate = useNavigate()
     const {id} =useParams()
     const {user} = useAuth()
-    const {commProducts, deleteComm, getComm,addComment} = useComm()
-    const {getOneOrga, oneProductOrga} = useOrgaContext()
+    const {getHistory,history} = useRecommend()
+    const {commProducts, deleteComm, getComm,addComment,} = useComm()
+    const {getOneOrga, oneProductOrga,ratingOrga, subscribeOrga} = useOrgaContext()
     const [comment, setComment] = useState({
         body: '',
         organization: id,
     })
 
+    const [rating,setRating]= useState({
+        value: oneProductOrga.ratings,
+    })
+
+
+
+
     useEffect(()=>{
         getOneOrga(id)
+        getHistory()
     },[])
+
+
+    
     useEffect(()=>{
         getComm(id)
     },[])
 
+    useEffect(() => {
+        ratingOrga(id, rating)
+
+    }, [rating.value])
+
+    const handleRating =  (e) => {
+        
+        setRating({value: Number(e.target.value)})
+        
+        
+    }
+
+console.log(history);
     return (
         <Box className="container1">
             <Box className="block_detail">
                 <div class="orga-detail-img">
                     <img width='150px' src={oneProductOrga.cover} alt="" />
                     <div className="btn-podkiska">
-                        <button>Подписаться</button>
+                    <p>{oneProductOrga.subscribers}</p>
+
+                        <button onClick={()=> subscribeOrga(id)}>{}  Подписаться</button>
+                        <Typography component="legend">Оценка</Typography>
+                <Rating 
+                //  onClick={()=>ratingOrga(id,rating) }
+            onChange={(e)  => handleRating(e)}
+                 value={rating.value} />
+            <p>{oneProductOrga.ratings}</p>
+
+            {/* {...rating, value: e.target.value} */}
                     </div>
                 </div>
+                <div>
                 <div className="orga-detail-text">
                     <h2 className="">{oneProductOrga.title}</h2>
                     <div className="orga-text">
@@ -43,7 +81,18 @@ const MysteryBookCard = () => {
 
 
                 </div>
+
+                <Paper sx={{width: '50%', marginTop: '50px'}}>История заказов
+                {history?.map((item)=>(
+                    <p>{item}</p>
+                    
+                ))}
+                
+                </Paper>
+                </div>
+                
             </Box>
+            
             <Box className="block_detail2">
                 <Box className="commList">
                 {commProducts.map((item) => (
