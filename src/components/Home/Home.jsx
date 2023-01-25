@@ -22,7 +22,7 @@ const Home = () => {
                         <div className='block1'>
                         <div className='home-page-block1-buttons'>
                     <h2>Найти работу <DeliveryDiningIcon/></h2>
-                    <button class="button1">Начать</button>
+                    <button onClick={()=>navigate('/aboutus')} class="button1">Начать</button>
                 
                     </div>
                 <div className='home-page-block1-buttons'>
@@ -56,17 +56,17 @@ const Home = () => {
         <div className="block3-elem">
             <img width="400px" src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/dd109bb1f7572eed.png" alt="" />
             <h2>Закажи прямо сейчас</h2>
-            <button className='block3-btn'><span>Создай свой бизнес</span> </button>
+            <button onClick={()=> navigate('/products') } className='block3-btn'><span>Создай свой бизнес</span> </button>
         </div>
         <div className="block3-elem">
         <img width="400px" src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/8148ef38ec4096b7.png" alt="" />
             <h2>Добавь свое заведение</h2>
-            <button className='block3-btn'> <span>Добавить ресторан</span> </button>
+            <button onClick={()=> navigate('/products') } className='block3-btn'> <span>Добавить ресторан</span> </button>
         </div>
         <div className="block3-elem">
         <img width="400px" src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/7a9d4feba62d2c0b.png" alt="" />
             <h2>Стань курьером и зарабатывай</h2>
-            <button className='block3-btn'> <span>Начать зарабатывать</span> </button>
+            <button onClick={()=> navigate('/aboutus') } className='block3-btn'> <span>Начать зарабатывать</span> </button>
         </div>
         {/* </Box> */}
         </Box>

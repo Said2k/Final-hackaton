@@ -395,8 +395,9 @@ margin-left: 5px;
 @media only screen and (max-width: 320px){
 .button1{
   width: 100px;
-  font-size: 16px;
+  font-size: 16px !important;
 }
+
 #home-page-h1{
   font-size: 15px;
   /* margin-bottom: 200px; */
@@ -483,6 +484,18 @@ width: 80px;
   .button1{
     width: 100px;
     font-size: 18px;
+  }
+  .block3-elem{
+    width: 300px;
+  }
+  .block3-elem img{
+    width: 200px;
+  }
+  .home-page-h2-h2 h2{
+    font-size: 20px !important;
+  }
+  .homepage-block3-h2 h2{
+    font-size: 20px;
   }
   #home-page-h1{
     font-size: 15px;
@@ -673,5 +686,11 @@ width: 80px;
     justify-content: center;
     align-items: center;
     background:#fde718 ;
+  }
+  .home-page-block4{
+    
+  }
+  .block4-elems img{
+    width: 80px;
   }
 }

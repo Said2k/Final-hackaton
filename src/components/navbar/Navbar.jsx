@@ -11,9 +11,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import AdbIcon from '@mui/icons-material/Adb';
 import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
 import '../navbar/Navbar.css'
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../Context/authContext';
 
 
@@ -24,6 +25,7 @@ import { useAuth } from '../../Context/authContext';
 const pages = [
   {name: "Продукты", link: "/products", id: 1},
   {name: "О нас", link: "/aboutus", id: 2},
+  {name: "Поддержка", link: "/support", id: 3},
 ];
 
 
@@ -63,7 +65,7 @@ function Navbar() {
     textTransform: "capitalize",
   };
 
-  
+
 
   return (
     // sx={{backgroundColor: 'white'}}
@@ -166,12 +168,12 @@ function Navbar() {
               </Button>
             ))}
           </Box>
-         
 
-          
+
+
               {user ? (
                 <>
-                <Typography sx={{ alignSelf: "center", marginRight: "10px" }}>{user}</Typography>
+                <Typography className='qq' sx={{ alignSelf: "center", marginRight: "10px" }}>{user}</Typography>
                 <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

@@ -8,10 +8,12 @@ import EditIcon from '@mui/icons-material/Edit';
 import { useNavigate } from 'react-router-dom'
 import { useOrgaContext } from '../../Context/organContext';
 import { Button } from '@mui/material';
+import { useAuth } from '../../Context/authContext';
 export default function ProductCard({item}) {
  const { likeOrga, deleteOrga } = useOrgaContext()
+ const {user} = useAuth()
   const navigate = useNavigate()
-
+console.log(item)
   return (  
 <>
 <Card id="product-card" className="card card0" sx={{backgroundImage:`URL(${item.cover})`}}>
@@ -19,9 +21,10 @@ export default function ProductCard({item}) {
       <h2 className='card-h2' onClick={()=>navigate(`/detailOrg/${item.id}`)}>{item.title}</h2>
       <div className="icons">
      <Button><ThumbUpOffAltIcon onClick={()=> likeOrga(item.id)} className='product-card-icons' sx={{color: "black"}} />{item.likes}</Button>
-     <Button><EditIcon className='product-card-icons' sx={{color: "black"}}/></Button>
+     {user == item.user ? <Button><EditIcon onClick={()=> navigate(`/editOrg/${item.id}`)} className='product-card-icons' sx={{color: "black"}}/></Button> : null }
+     {user == item.user ? <Button><DeleteOutlineIcon onClick={()=> deleteOrga(item.id)} className='product-card-icons' sx={{color: "black"}}/></Button> : null }
 
-     <Button><DeleteOutlineIcon onClick={()=> deleteOrga(item.id)} className='product-card-icons' sx={{color: "black"}}/></Button>
+     
      <button className='product-card-icons' onClick={()=> navigate(`/menu/${item.id}`)} >МЕНЮ</button>
 
       </div>

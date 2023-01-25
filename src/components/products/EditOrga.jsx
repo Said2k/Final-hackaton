@@ -27,6 +27,7 @@ const EditOrga = () => {
     newProduct.append("cover", product.cover)
     newProduct.append("category", product.category)
     editOrga(id, newProduct)
+    navigate('/products')
   }
     return (
         <div>

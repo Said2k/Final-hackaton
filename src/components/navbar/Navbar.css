@@ -18,7 +18,7 @@ color: black !important;
     color: black !important;
 }
 @media only screen and (max-width: 320px){
-.account{
+.qq{
     display: none !important;
 }
 .account-name{
@@ -26,7 +26,7 @@ color: black !important;
 }
 }
 @media only screen and (max-width: 425px){
-.account{
+.qq{
     display: none !important;
 }
     .account-name{
@@ -34,3 +34,4 @@ color: black !important;
     }
 }
 
+ 
