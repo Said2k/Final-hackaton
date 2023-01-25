@@ -10,27 +10,24 @@ const API = "http://34.134.203.27/organizations/";
 
 const INIT_STATE = {
   orgaProducts: [],
-  oneProductOrga: {},
-  pages: 0,
+    oneProductOrga: {},
+    pages: 0,
 };
 
-const reducer = (state = INIT_STATE, action) => {
-  switch (action.type) {
-    case "GET_ORGA":
-      return {
-        ...state,
-        pages: Math.ceil(action.payload.count / 6),
-        orgaProducts: action.payload,
-      };
-    case "GET_ONE_ORGA":
-      return {
-        ...state,
-        oneProductOrga: action.payload,
-      };
-    default:
-      return state;
-  }
-};
+const reducer = (state=INIT_STATE, action) =>{
+    switch(action.type){
+        case  'GET_ORGA': 
+        return {
+            ...state, 
+            pages: Math.ceil(action.payload.count / 6),
+            orgaProducts: action.payload.results,
+        }
+        case 'GET_ONE_ORGA':
+            return {
+                ...state, oneProductOrga: action.payload,
+            }
+            default: 
+            return state
 
 const OrgaContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
@@ -52,19 +49,25 @@ const OrgaContextProvider = ({ children }) => {
       console.log(res);
     } catch (error) {
       console.log(error);
+
+  
+}
+
+
     }
   };
 
-  const getOrga = async () => {
-    try {
-      const res = await axios(`${API}${window.location.search}`);
-      dispatch({
-        type: "GET_ORGA",
-        payload: res.data.results,
-      });
-      console.log(res.data);
-    } catch (error) {
-      console.log(error);
+ const getOrga = async ()=>{
+        try {
+            const res = await axios(`${API}${window.location.search}`)
+            dispatch({
+                type: 'GET_ORGA',
+                payload: res.data
+            })
+            console.log(res.data);
+        } catch (error) {
+            console.log(error);
+        }
     }
   };
 
@@ -78,6 +81,7 @@ const OrgaContextProvider = ({ children }) => {
       });
     } catch (error) {
       console.log(error);
+
     }
   };
 
