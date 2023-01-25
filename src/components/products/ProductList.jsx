@@ -15,32 +15,27 @@ const ProductList = ({item}) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [searchProduct, setSearchProduct] = useState(searchParams.get('q')|| '')
     const [currentPage, setCurrentPage] = useState(1)
-
-
-
+    
+    
     useEffect(()=>{
         setSearchParams({
             q: searchProduct,
         })
         getOrga()
     },[searchProduct])
-
+    
     useEffect(()=>{
-    getOrga()
+        getOrga()
     },[searchParams])
-
-
+    
+    
     useEffect(()=>{
         setSearchParams({
             page: currentPage,
-
+            
         })
         // console.log(window.location);
     },[currentPage])
-
-
-    console.log(pages);
-
 
 // console.log(orgaProducts);
     return (

@@ -13,7 +13,10 @@ export default function ProductCard({item}) {
  const { likeOrga, deleteOrga } = useOrgaContext()
  const {user} = useAuth()
   const navigate = useNavigate()
-console.log(item)
+
+  
+  console.log(item)
+
   return (  
 <>
 <Card id="product-card" className="card card0" sx={{backgroundImage:`URL(${item.cover})`}}>
