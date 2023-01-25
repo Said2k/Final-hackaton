@@ -18,6 +18,7 @@ import EditProduct from '../components/products/EditProduct';
 
 import SupportBot from '../components/SupportBot/SupportBot';
 import Support from '../components/Support/Support';
+import Dell from '../components/CreditCard/Dell';
 
 const Routing = () => {
     return (
@@ -38,6 +39,7 @@ const Routing = () => {
            <Route path='/editOrg/:id' element={<EditOrga/> }/> 
            <Route path='/editProd/:id/:id2' element={<EditProduct/> }/> 
            <Route path='/support' element={<Support/>}/>
+           <Route path='/add-dell/:id' element={<Dell/>}/>
         </Routes>
     );
 };
