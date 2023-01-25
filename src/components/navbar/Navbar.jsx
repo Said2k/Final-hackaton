@@ -201,7 +201,7 @@ function Navbar() {
           </Box>
           </>
               ) : (
-                <Box sx={{ display: "flex" }}>
+                <Box className='account' sx={{ mr: '10px' }}>
                 <Button sx={buttonsStyle} onClick={() => navigate("/login")}>
                   Login
                 </Button>
