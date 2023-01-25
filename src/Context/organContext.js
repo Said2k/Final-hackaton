@@ -21,7 +21,7 @@ const reducer = (state=INIT_STATE, action) =>{
         return {
             ...state, 
             pages: Math.ceil(action.payload.count / 6),
-            orgaProducts: action.payload,
+            orgaProducts: action.payload.results,
         }
         case 'GET_ONE_ORGA':
             return {
@@ -65,7 +65,7 @@ const OrgaContextProvider =({children})=>{
             const res = await axios(`${API}${window.location.search}`)
             dispatch({
                 type: 'GET_ORGA',
-                payload: res.data.results
+                payload: res.data
             })
             console.log(res.data);
         } catch (error) {
