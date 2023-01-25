@@ -10,12 +10,12 @@ const EditProduct = () => {
     const navigate = useNavigate();
   const { getOneProduct, editProduct, oneProduct} = useProducts()
   const [product, setProduct] = useState(oneProduct);
+  const {id, id2} = useParams()
 
   useEffect(() => {
     setProduct(oneProduct);
   }, [oneProduct]);
 
-  const {id, id2} = useParams()
   useEffect(() => {
     getOneProduct(id,id2);
 }, []);
@@ -30,6 +30,8 @@ console.log(id,id2)
     newProduct.append("organization", id)
 
     editProduct(id, id2, newProduct)
+    navigate(`/menu/${id}`)
+
     console.log(newProduct);
   }
   console.log(product);
