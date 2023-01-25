@@ -3,10 +3,11 @@ import React from 'react';
 import { useAuth } from '../../Context/authContext';
 import { useDell } from '../../Context/deliveryContext';
 import '../aboutUs/AboutUs.css'
+import Footer from '../footer/Footer';
 
 const AboutUs = () => {
     return (
-        <div>
+        <div className='aboutus-main'>
 
 
             <div className='aboutus'>
@@ -34,6 +35,7 @@ const AboutUs = () => {
         </div> 
             </div>
         </div>
+        <div className="aboutus-block2-main">
         <div className="aboutus-block2">
             <div className="aboutus-block2-h2" >
                 <h2>Наши преимущества</h2>
@@ -57,8 +59,18 @@ const AboutUs = () => {
                 
             </div>
         </div>
+</div>
 
+        <div className='aboutus-block3'>
+        <div className='aboutus-block3-elem'>
+            <img src="https://resumeshkin.com/ru/uploads/posts/2020-08/1596510013_chelovek-idyot-k-svoej-czeli-v-rezyume.jpg" alt="" />
+            <h2>Наша цель</h2>
+            <span>Цель нашей компании в том, чтобы предоставить рабочие места и удобные условия для организаций в сфере доставки. Мы хотим предоставить работу для людей, у которых нет условий, чтобы устроиться на работу из-за разных факторов. Наш сайт позволит легко зарегистрироваться и зарабатывать деньги на доставке, не только еды, но и всего прочего, что означает, то что вы так же можете создавать рабочие места для пользователей нашего сайта. Все очень просто, если вам нужно доставить какую-то вещь в какую-либо точку, то вам нужно зарегистрироваться и опубликовать пост с подробностями о доставляемом веще и наши курьеры сделают эту работу в кратчайшие сроки.</span>
         </div>
+        </div>
+        <Footer/>
+        </div>
+        
     );
 };
 

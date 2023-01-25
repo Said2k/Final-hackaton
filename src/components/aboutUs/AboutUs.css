@@ -151,6 +151,7 @@
       40% 65%
     );
   }
+  
   .aboutus{
     width: 100%;
 
@@ -201,6 +202,7 @@ background: linear-gradient(90deg, rgba(219,219,212,0.5662640056022409) 100%, rg
   .aboutus-block2{
     width: 100%;
     background: #fffb20;
+    height: 100vh;
   }
   .aboutus-block2-elems{
     width: 100%;
@@ -218,4 +220,21 @@ background: linear-gradient(90deg, rgba(219,219,212,0.5662640056022409) 100%, rg
   .aboutus-block2-h2{
     text-align: center;
     font-size: 25px;
+  }
+  .aboutus-block2-main{
+    
+  }
+  .aboutus-block3{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    margin-top: 30px;
+  }
+  .aboutus-block3-elem{
+    width: 600px !important;
+
+  }
+  .aboutus-block3-elem img{
+    width: 300px;
   }

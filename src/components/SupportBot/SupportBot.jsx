@@ -26,9 +26,17 @@ const SupportBot = () => {
     },[searchProduct])
 
     return (
+        <div  className='support-main'>
+            <div className="support-bot-block1">
+
+            </div>
+            <div className='support-h2'>
+                <h2>Здесь вы можете узнать ответы на интерусующиеся вопросы</h2>
+            </div>
         <div className='supportbot-main'>
             
         <div className='support-bot'>
+            
             <h2>Вопросы</h2>
             {quations.map((item,index)=>(
                 <div className='bot-question'>
@@ -38,13 +46,12 @@ const SupportBot = () => {
                 </div>
             ))}
             
-               
-
         </div>
          <div className='bot-asnwer'>
             <h2>Ответы</h2>
                     <p>{answer}</p>
                 </div>
+        </div>
         </div>
     );
 };

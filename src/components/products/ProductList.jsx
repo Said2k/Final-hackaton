@@ -36,16 +36,13 @@ const ProductList = ({item}) => {
         })
         // console.log(window.location);
     },[currentPage])
-    
-    
-    console.log(pages);
-    
+
 // console.log(orgaProducts);
     return (
         <>
         <div id="product-list">
             <div className='product-list-left'>
-
+            
 
 
             <RadioGroup className='products-sidebar' sx={{display: 'flex', flexDirection: 'column'}} onChange={(e)=>fetchByParams('category', e.target.value)}>
@@ -53,7 +50,7 @@ const ProductList = ({item}) => {
 <FormControlLabel value={'Еда'} control={<Radio/>} label={'Еда'}/>
 <FormControlLabel value={'Товары'} control={<Radio/>} label={'Товары'}/>
 <FormControlLabel value={'Другое'} control={<Radio/>} label={'Другое'}/>
-<FormControlLabel value={'all'} control={<Radio/>} label={'All'}/>
+<FormControlLabel value={'Все'} control={<Radio/>} label={'Все'}/>
 
 </RadioGroup>
  
@@ -78,7 +75,7 @@ const ProductList = ({item}) => {
 
 
         </div>
-        <Pagination
+        <Pagination 
                 onChange={(e,page)=>setCurrentPage(page)}
                 variant='outlined'
                 color='primary'

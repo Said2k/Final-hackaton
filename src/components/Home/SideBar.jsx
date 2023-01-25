@@ -43,7 +43,7 @@ import {
               <FormLabel>Категории</FormLabel>
               <RadioGroup>
                 <FormControlLabel value="Все" control={<Radio />} label="Все" />
-                <FormControlLabel
+                <FormControlLabel className="filter-links"
                   value="Рестораны"
                   control={<Radio />}
                   label="Рестораны"
