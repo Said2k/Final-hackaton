@@ -35,18 +35,18 @@ const ProductList = ({item}) => {
             page: currentPage,
 
         })
-        console.log(window.location);
+        // console.log(window.location);
     },[currentPage])
 
 
-
+console.log(pages);
 
 // console.log(orgaProducts);
     return (
         <>
         <div id="product-list">
             <div className='product-list-left'>
-            <div class="lsacetug_dolponaxed">
+            <div className="lsacetug_dolponaxed">
 
             <RadioGroup sx={{display: 'flex', flexDirection: 'row'}} onChange={(e)=>fetchByParams('category', e.target.value)}>
 
