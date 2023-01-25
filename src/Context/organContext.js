@@ -132,13 +132,13 @@ const OrgaContextProvider = ({ children }) => {
       };
       const res = await axios.post(`${API}${id}/like/`, {}, config);
       console.log(res);
-      getOrga();
+      getOrga()
     } catch (error) {
       console.log(error);
     }
   };
 
-  const ratingOrga = async (id) => {
+  const ratingOrga = async (id,rating) => {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
       const Authorization = `Bearer ${token.access}`;
@@ -147,9 +147,9 @@ const OrgaContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.post(`${API}${id}/rating/`, { value: 3 }, config);
+      const res = await axios.post(`${API}${id}/rating/`, rating, config);
       console.log(res);
-      getOrga();
+      getOneOrga(id);
     } catch (error) {
       console.log(error);
     }
@@ -166,6 +166,8 @@ const OrgaContextProvider = ({ children }) => {
       };
       let res = await axios.post(`${API}${id}/subscribe/`, {}, config);
       console.log(res);
+      getOneOrga(id);
+
     } catch (error) {
       console.log(error);
     }
