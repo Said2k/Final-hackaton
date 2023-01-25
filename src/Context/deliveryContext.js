@@ -43,6 +43,7 @@ const DellContextProvider = ({ children }) => {
         },
       };
       const res = await axios.post(`${API}`, newProduct, config);
+      getDell();
       console.log(res);
     } catch (error) {
       console.log(error);
@@ -54,9 +55,9 @@ const DellContextProvider = ({ children }) => {
       const res = await axios(`${API}`);
       dispatch({
         type: "GET_DELL",
-        payload: res.data.results,
+        payload: res,
       });
-      console.log(res.data);
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -75,7 +76,7 @@ const DellContextProvider = ({ children }) => {
     }
   };
 
-  const addDellCarts = async (delivery_pk, newProduct) => {
+  const addDellCarts = async (newProduct) => {
     try {
       const token = JSON.parse(localStorage.getItem("token"));
       const Authorization = `Bearer ${token.access}`;
@@ -85,12 +86,7 @@ const DellContextProvider = ({ children }) => {
           Authorization,
         },
       };
-      const res = await axios.post(
-        `${API}${delivery_pk}/carts/`,
-        newProduct,
-        delivery_pk,
-        config
-      );
+      const res = await axios.post(`${API}${1}/carts/`, newProduct, config);
       console.log(res);
     } catch (error) {
       console.log(error);

@@ -1,5 +1,5 @@
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useEffect } from 'react';
 import './home.css'
 import HomeCard from './HomeCards';
 import SideBar from './SideBar';
@@ -7,8 +7,13 @@ import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import Footer from '../footer/Footer';
 import { useNavigate } from 'react-router-dom'
+import { useRecommend } from '../../Context/recommendation';
 const Home = () => {
-
+    const {getRec, recomm} = useRecommend()
+    useEffect(()=>{
+        getRec()
+    },[])
+    console.log(recomm)
     const navigate = useNavigate()
     return (
         <div>
