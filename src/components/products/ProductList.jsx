@@ -46,9 +46,9 @@ const ProductList = ({item}) => {
         <>
         <div id="product-list">
             <div className='product-list-left'>
-            <div class="lsacetug_dolponaxed">
+            {/* <div class="lsacetug_dolponaxed"> */}
 
-            <RadioGroup sx={{display: 'flex', flexDirection: 'row'}} onChange={(e)=>fetchByParams('category', e.target.value)}>
+            <RadioGroup className='products-sidebar' sx={{display: 'flex', flexDirection: 'column'}} onChange={(e)=>fetchByParams('category', e.target.value)}>
 
 <FormControlLabel value={'Еда'} control={<Radio/>} label={'Еда'}/>
 <FormControlLabel value={'Товары'} control={<Radio/>} label={'Товары'}/>
@@ -58,19 +58,13 @@ const ProductList = ({item}) => {
 </RadioGroup>
  
 
-</div>
+{/* </div> */}
             </div>
             <div className='product-list-mid'>
                 {orgaProducts.map((item)=>(
                     <ProductCard item={item} key={item.id}/>
                 ))}
-                <Pagination
-                onChange={(e,page)=>setCurrentPage(page)}
-                variant='outlined'
-                color='primary'
-                count={pages}
-                page={currentPage}
-                />
+                
             </div>
             <div className='product-list-right'>Избранное
            
@@ -84,6 +78,13 @@ const ProductList = ({item}) => {
 
 
         </div>
+        <Pagination
+                onChange={(e,page)=>setCurrentPage(page)}
+                variant='outlined'
+                color='primary'
+                count={pages}
+                page={currentPage}
+                />
             <Footer/>
             </>
     );

@@ -1,4 +1,4 @@
-import { Box, Button, Container, TextField } from "@mui/material";
+import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../Context/authContext";
@@ -26,26 +26,37 @@ const MysteryBookCard = () => {
 
     return (
         <Box className="container1">
-            <Box className="block_detail" sx={{backgroundImage: `url(${oneProductOrga.cover})`}}>
+            <Box className="block_detail">
+                <div class="orga-detail-img">
+                    <img width='150px' src={oneProductOrga.cover} alt="" />
+                    <div className="btn-podkiska">
+                        <button>Подписаться</button>
+                    </div>
+                </div>
+                <div className="orga-detail-text">
+                    <h2 className="">{oneProductOrga.title}</h2>
+                    <div className="orga-text">
+                    <span className="orga-typo">Адрес: {oneProductOrga.address}</span>
+                    <span className="orga-typo">Номер: {oneProductOrga.phone}</span>
+                    <span className="orga-typo">Категория: {oneProductOrga.category}</span>  
+                    </div> 
 
-                <div class="content">
-                    <div class="blockText">{oneProductOrga.title}</div>
-                    <div class="blockText">{oneProductOrga.address}</div>
-                    <div class="blockText">{oneProductOrga.phone_number}</div>
+                    
                 </div>
             </Box>
-            <Box className="black_detail2">
+            <Box className="block_detail2">
                 <Box className="commList">
                 {commProducts.map((item) => (
                     <div key={item.id}>
+                    <span>{item.user}  </span>
                     <span>
-                        {item.body} {item.user}
+                        {item.body}   
                     </span>
                     {item.user == user ? <button onClick={()=> deleteComm(id, item.id)}>Delete</button> : null}
                     </div>
                 ))}
                 </Box>
-                <TextField value={comment.body} onChange={(e)=>setComment({...comment, body: e.target.value})} id="standard-basic" label="Comments" variant="standard" sx={{marginTop: "10px"}}/>
+                <TextField value={comment.body} onChange={(e)=>setComment({...comment, body: e.target.value})} id="standard-basic" label="Оставить отзыв" variant="standard" sx={{marginTop: "10px"}}/>
                 <Button onClick={()=>addComment(id, comment)}>Отправить</Button>
             </Box>
         </Box>
