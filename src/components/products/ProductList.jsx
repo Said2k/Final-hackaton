@@ -9,14 +9,18 @@ import Footer from '../footer/Footer';
 import '../products/ProductList.css'
 import ProductCard from './ProductListCard';
 import { useProducts } from '../../Context/productContext';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../Context/authContext';
 const ProductList = ({item}) => {
     const { getOrga, orgaProducts,subscribeOrga,fetchByParams,pages} = useOrgaContext()
     const [searchParams, setSearchParams] = useSearchParams();
     const [searchProduct, setSearchProduct] = useState(searchParams.get('q')|| '')
     const [currentPage, setCurrentPage] = useState(1)
-    
-    
+    const navigate = useNavigate()
+    const {user} = useAuth()
+console.log(user);
+
+
     useEffect(()=>{
         setSearchParams({
             q: searchProduct,
@@ -39,7 +43,10 @@ const ProductList = ({item}) => {
 
 // console.log(orgaProducts);
     return (
-        <>
+        <div className='product-list1'>
+        
+        {user == user ? <div className='add-btn'><button onClick={()=> navigate('/add-orga')} className='add-orga-btn'>ДОБАВИТЬ</button></div> : null }
+
         <div id="product-list">
             <div className='product-list-left'>
             
@@ -83,7 +90,7 @@ const ProductList = ({item}) => {
                 page={currentPage}
                 />
             <Footer/>
-            </>
+            </div>
     );
 };
 

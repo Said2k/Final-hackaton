@@ -60,5 +60,21 @@
  background: #F44336;
 border-radius: 5px;
 font-size: 18px;
-margin-top: 15px;
+margin-bottom: 15px;
+}
+.btn-podkiska{
+    display: flex;
+    flex-direction: column;
+    
+}
+.btn-podkiska h3{
+    text-align: center;
+}
+.btn-podkiska p{
+    text-align: center;
+}
+.commList h4{
+    background: rgb(232,232,232);
+    background: linear-gradient(90deg, rgba(232,232,232,1) 100%, rgba(191,193,192,1) 100%);
+    width: auto;
 }

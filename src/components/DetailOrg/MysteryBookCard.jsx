@@ -6,6 +6,7 @@ import { useAuth } from "../../Context/authContext";
 import { useComm } from "../../Context/commContext";
 import { useOrgaContext } from "../../Context/organContext";
 import { useRecommend } from "../../Context/recommendation";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import "./MysteryBookCard.css";
 
 const MysteryBookCard = () => {
@@ -57,10 +58,9 @@ console.log(history);
                 <div class="orga-detail-img">
                     <img width='150px' src={oneProductOrga.cover} alt="" />
                     <div className="btn-podkiska">
-                    <p>{oneProductOrga.subscribers}</p>
-
+                    <h3>{oneProductOrga.subscribers}</h3>
                         <button onClick={()=> subscribeOrga(id)}>{}  Подписаться</button>
-                        <Typography component="legend">Оценка</Typography>
+                        <Typography component="legend">Рейтинг</Typography>
                 <Rating 
                 //  onClick={()=>ratingOrga(id,rating) }
             onChange={(e)  => handleRating(e)}
@@ -94,14 +94,15 @@ console.log(history);
             </Box>
             
             <Box className="block_detail2">
+                Отзывы
                 <Box className="commList">
                 {commProducts.map((item) => (
                     <div key={item.id}>
-                    <span>{item.user}  </span>
+                    <h4>{item.user}:  </h4>
                     <span>
                         {item.body}   
                     </span>
-                    {item.user == user ? <button onClick={()=> deleteComm(id, item.id)}>Delete</button> : null}
+                    {item.user == user ? <button onClick={()=> deleteComm(id, item.id)}>   <DeleteOutlineIcon/></button> : null}
                     </div>
                 ))}
                 </Box>

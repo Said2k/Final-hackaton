@@ -4,6 +4,7 @@ import { useRecommend } from '../../Context/recommendation';
 import SupportBot from '../SupportBot/SupportBot';
 import '../SupportBot/SupportBot.css'
 import { useNavigate } from 'react-router-dom'
+import Footer from '../footer/Footer';
 
 
 const Support = () => {
@@ -37,7 +38,7 @@ const Support = () => {
 
                 ))}
             <SupportBot/>
-
+<Footer/>
         </div>
     );
 };

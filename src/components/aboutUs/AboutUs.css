@@ -238,3 +238,96 @@ background: linear-gradient(90deg, rgba(219,219,212,0.5662640056022409) 100%, rg
   .aboutus-block3-elem img{
     width: 300px;
   }
+
+  #aboutus-block2-elem img{
+    width: 300px;
+  }
+
+  @media only screen and (max-width: 320px){
+    .aboutus-block1{
+        display: flex;
+        flex-wrap: wrap;    
+        width: 100vw;
+        height: auto;
+    }
+    .aboutus-block1-elems{
+        width: 80vw;
+        margin-bottom: 10px;
+    }
+    .aboutus-block2-elems{
+        display: flex;
+        flex-direction: column;
+
+    }
+    #aboutus-block2-elem{
+        width: 300px;
+        margin-bottom: 20px;
+    }
+    #aboutus-block2-elem img{
+        width: 200px !important;
+    }
+    .aboutus-block2{
+        height: auto;
+    }
+    .aboutus-block3{
+        width: 80vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .aboutus-block3-elem{
+        width: 100px;
+        margin-left: 20px;
+    }
+    .aboutus-block3-elem img{
+        width: 200px;
+    }
+  }
+  @media only screen and (max-width: 425px){
+    .aboutus-block1{
+        display: flex;
+        flex-wrap: wrap;    
+        width: 100vw;
+        height: auto;
+    }
+    .aboutus-block1-elems{
+        width: 80vw;
+        margin-bottom: 10px;
+    }
+    .aboutus-block2-elems{
+        display: flex;
+        flex-direction: column;
+
+    }
+    #aboutus-block2-elem{
+        width: 300px;
+        margin-bottom: 20px;
+    }
+    #aboutus-block2-elem img{
+        width: 200px !important;
+    }
+    .aboutus-block2{
+        height: auto;
+    }
+    .aboutus-block3{
+        width: 80vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .aboutus-block3-elem{
+        width: 100px;
+        margin-left: 20px;
+    }
+    .aboutus-block3-elem img{
+        width: 200px;
+    }
+  }
+  @media only screen and (max-width: 768px){
+    #aboutus-block2-elem img{
+        width: 200px;
+    }
+    .aboutus-block1-elems{
+        height: auto;
+    }
+  }

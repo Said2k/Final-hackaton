@@ -2,6 +2,8 @@
     display: flex;
     justify-content: space-around !important;
     margin-top: 20px;
+    background-image: url(https://media.istockphoto.com/vectors/wallpaper-of-fastfood-fast-food-elements-icons-vector-street-food-vector-id1338717576?s=2048x2048);
+    background-size: cover;
 
 }
 .menu-navigation{
@@ -13,6 +15,7 @@ justify-content: space-around;
 align-items: center;
 border: 1px solid #fffb20 ;
 border-radius: 5px;
+background: white;
 }
 .menu-navigation a{
     text-decoration: none;
@@ -60,6 +63,7 @@ justify-content: space-evenly;
     width: 30%;
     height: 315px;
     transition: 00.5s;
+    background: white;
 }
 .menu-card:hover{
     width: 32%;
