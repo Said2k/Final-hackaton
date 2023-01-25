@@ -222,6 +222,26 @@ cursor: pointer;
   flex-direction: column;
 } */
 
+.add-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.add-orga-btn{
+  width: 250px;
+  height: 35px;
+  border-radius: 50px;
+  background: #fde718 ;
+  transition: 0.5;
+  border: 1px;
+}
+.add-orga-btn:hover{
+  width: 260px;
+  height: 40px;
+  transition: 0.5;
+  background: #4DD0E1;
+}
 
 @media only screen and (max-width: 425px){
   .card{
@@ -284,4 +304,10 @@ cursor: pointer;
     width: auto;
     height: auto;
   }
+}
+.product-list1{
+  background-image: url(https://img.freepik.com/free-photo/top-view-american-fast-food-concept_23-2147819565.jpg?w=2000);
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  background-size: cover;
 }

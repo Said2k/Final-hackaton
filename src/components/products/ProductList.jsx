@@ -13,12 +13,16 @@ import { useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../Context/authContext';
 const ProductList = () => {
     const {user} = useAuth()
+
     const { getOrga, orgaProducts,subscribeOrga,fetchByParams,pages} = useOrgaContext()
     const [searchParams, setSearchParams] = useSearchParams();
     const [searchProduct, setSearchProduct] = useState(searchParams.get('q')|| '')
     const [currentPage, setCurrentPage] = useState(1)
-    
-    
+    const navigate = useNavigate()
+    const {user} = useAuth()
+console.log(user);
+
+
     useEffect(()=>{
         setSearchParams({
             q: searchProduct,
@@ -41,7 +45,10 @@ const ProductList = () => {
 
 // console.log();
     return (
-        <>
+        <div className='product-list1'>
+        
+        {user == user ? <div className='add-btn'><button onClick={()=> navigate('/add-orga')} className='add-orga-btn'>ДОБАВИТЬ</button></div> : null }
+
         <div id="product-list">
             <div className='product-list-left'>
             
@@ -86,7 +93,7 @@ const ProductList = () => {
                 page={currentPage}
                 />
             <Footer/>
-            </>
+            </div>
     );
 };
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, MenuItem, Select, TextField } from "@mui/material";
 import { useNavigate, useParams } from "react-router-dom";
 import { useOrgaContext } from '../../Context/organContext';
 
@@ -65,28 +65,22 @@ const EditOrga = () => {
             setProduct((prev) => ({ ...prev, phone: e.target.value }))
         }
       />
-      <TextField
-        fullWidth
-        type='file'
-        id="outlined-basic"
-        label="Picture"
-        variant="outlined"
-        name="picture"
-        onChange={(e) =>
-            setProduct({...product, cover: e.target.files[0]})
-        }
-      />
-      <TextField
-        fullWidth
-        id="outlined-basic"
-        label="Category"
-        variant="outlined"
-        name="Category"
-        value={product.category}
-        onChange={(e) =>
-            setProduct((prev) => ({ ...prev, category: e.target.value }))
-        }
-      />
+    
+      <Select 
+      id='labelId'
+      value={product.category}
+      onChange={(e) =>
+        setProduct((prev) => ({ ...prev, category: e.target.value }))
+    }
+      >
+        <MenuItem value={'Еда'}>Еда</MenuItem>
+        <MenuItem value={'Товары'}>Товары</MenuItem>
+        <MenuItem value={'Другое'}>Другое</MenuItem>
+      </Select>
+      <input type='file' name='picture'  
+            onChange={(e) =>
+              setProduct({...product, cover: e.target.files[0]})
+            }/>
       <Button
         onClick={handleSave}
         variant="outlined"
