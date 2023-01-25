@@ -27,12 +27,31 @@ border-radius: 5px;
 background: linear-gradient(90deg, rgba(233,246,11,0.7539390756302521) 100%, rgba(177,177,176,0.4514180672268907) 100%);
 border-radius: 5px;
 }
+
+.menu-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.menu-text p{
+    margin: 0;
+}
+.menu-text h4{
+    margin: 0;
+}
+
 .menu-cards-wrap{
  width: 70vw;
 height: 80vh;   
 display: flex;
 flex-wrap: wrap;
 justify-content: space-evenly;
+}
+.menu-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .menu-card{
     display: flex;
@@ -46,6 +65,7 @@ justify-content: space-evenly;
     width: 32%;
     height: 325px;
     transition: 00.5s;
+
 
 }
 .menu-btn-cart{

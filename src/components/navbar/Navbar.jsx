@@ -11,11 +11,14 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import BoltOutlinedIcon from '@mui/icons-material/BoltOutlined';
 import '../navbar/Navbar.css'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../Context/authContext';
+
+
+
+
 
 
 const pages = [
@@ -59,6 +62,8 @@ function Navbar() {
     display: "block",
     textTransform: "capitalize",
   };
+
+  
 
   return (
     // sx={{backgroundColor: 'white'}}
@@ -161,6 +166,9 @@ function Navbar() {
               </Button>
             ))}
           </Box>
+         
+
+          
               {user ? (
                 <>
                 <Typography sx={{ alignSelf: "center", marginRight: "10px" }}>{user}</Typography>

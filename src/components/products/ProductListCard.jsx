@@ -20,8 +20,9 @@ export default function ProductCard({item}) {
       <div className="icons">
      <Button><ThumbUpOffAltIcon onClick={()=> likeOrga(item.id)} className='product-card-icons' sx={{color: "black"}} />{item.likes}</Button>
      <Button><EditIcon className='product-card-icons' sx={{color: "black"}}/></Button>
-     <Button><DeleteOutlineIcon onClick={()=> deleteOrga(item.id)} className='product-card-icons' sx={{color: "black"}}/></Button>  
-     <button className='product-card-icons' onClick={()=> navigate('/menu')} >Меню</button>
+
+     <Button><DeleteOutlineIcon onClick={()=> deleteOrga(item.id)} className='product-card-icons' sx={{color: "black"}}/></Button>
+     <button className='product-card-icons' onClick={()=> navigate(`/menu/${item.id}`)} >МЕНЮ</button>
 
       </div>
     </div>

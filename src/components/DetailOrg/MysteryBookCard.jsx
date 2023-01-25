@@ -1,12 +1,13 @@
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../../Context/authContext";
 import { useComm } from "../../Context/commContext";
 import { useOrgaContext } from "../../Context/organContext";
 import "./MysteryBookCard.css";
 
 const MysteryBookCard = () => {
+    const navigate = useNavigate()
     const {id} =useParams()
     const {user} = useAuth()
     const {commProducts, deleteComm, getComm,addComment} = useComm()
@@ -21,7 +22,6 @@ const MysteryBookCard = () => {
     },[])
     useEffect(()=>{
         getComm(id)
-
     },[])
 
     return (
@@ -41,7 +41,7 @@ const MysteryBookCard = () => {
                     <span className="orga-typo">Категория: {oneProductOrga.category}</span>  
                     </div> 
 
-                    
+
                 </div>
             </Box>
             <Box className="block_detail2">
