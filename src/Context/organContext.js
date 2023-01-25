@@ -28,7 +28,8 @@ const reducer = (state=INIT_STATE, action) =>{
             }
             default: 
             return state
-
+        }
+    }
 const OrgaContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
   const location = useLocation();
@@ -55,7 +56,7 @@ const OrgaContextProvider = ({ children }) => {
 
 
     }
-  };
+  
 
  const getOrga = async ()=>{
         try {
@@ -69,7 +70,7 @@ const OrgaContextProvider = ({ children }) => {
             console.log(error);
         }
     }
-  };
+  
 
   const getOneOrga = async (id) => {
     try {
