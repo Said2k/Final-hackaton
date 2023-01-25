@@ -17,3 +17,20 @@ color: black !important;
 #navbar-links button{
     color: black !important;
 }
+@media only screen and (max-width: 320px){
+.account{
+    display: none !important;
+}
+.account-name{
+    display: none !important;
+}
+}
+@media only screen and (max-width: 425px){
+.account{
+    display: none !important;
+}
+    .account-name{
+        display: none !important;
+    }
+}
+

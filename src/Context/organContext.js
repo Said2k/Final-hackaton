@@ -65,135 +65,137 @@ const OrgaContextProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
+
+    const getOneOrga = async (id) => {
+      try {
+        const res = await axios(`${API}${id}/`);
+        console.log(res);
+        dispatch({
+          type: "GET_ONE_ORGA",
+          payload: res.data,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const editOrga = async (id, newObj) => {
+      try {
+        const token = JSON.parse(localStorage.getItem("token"));
+        const Authorization = `Bearer ${token.access}`;
+        console.log(Authorization);
+        const config = {
+          headers: {
+            Authorization,
+          },
+        };
+        const res = await axios.patch(`${API}${id}/`, newObj, config);
+        console.log(res.data.results);
+        getOrga();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const deleteOrga = async (id) => {
+      try {
+        const token = JSON.parse(localStorage.getItem("token"));
+        const Authorization = `Bearer ${token.access}`;
+        const config = {
+          headers: {
+            Authorization,
+          },
+        };
+        const res = await axios.delete(`${API}${id}/`, config);
+        console.log(res);
+        getOrga();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const likeOrga = async (id) => {
+      try {
+        const token = JSON.parse(localStorage.getItem("token"));
+        const Authorization = `Bearer ${token.access}`;
+        const config = {
+          headers: {
+            Authorization,
+          },
+        };
+        const res = await axios.post(`${API}${id}/like/`, {}, config);
+        console.log(res);
+        getOrga();
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const ratingOrga = async (id, rating) => {
+      try {
+        const token = JSON.parse(localStorage.getItem("token"));
+        const Authorization = `Bearer ${token.access}`;
+        const config = {
+          headers: {
+            Authorization,
+          },
+        };
+        const res = await axios.post(`${API}${id}/rating/`, rating, config);
+        console.log(res);
+        getOneOrga(id);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const subscribeOrga = async (id) => {
+      try {
+        const token = JSON.parse(localStorage.getItem("token"));
+        const Authorization = `Bearer ${token.access}`;
+        const config = {
+          headers: {
+            Authorization,
+          },
+        };
+        let res = await axios.post(`${API}${id}/subscribe/`, {}, config);
+        console.log(res);
+        getOneOrga(id);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const fetchByParams = async (query, value) => {
+      const search = new URLSearchParams(location.search);
+
+      if (value == "all") {
+        search.delete(query);
+      } else {
+        search.set(query, value);
+      }
+      const url = `${location.pathname}?${search.toString()}`;
+      navigate(url);
+    };
+
+    const values = {
+      addOrga,
+      getOrga,
+      getOneOrga,
+      editOrga,
+      deleteOrga,
+      likeOrga,
+      ratingOrga,
+      subscribeOrga,
+      fetchByParams,
+
+      pages: state.pages,
+      orgaProducts: state.orgaProducts,
+      oneProductOrga: state.oneProductOrga,
+    };
+
+    return (
+      <orgaContext.Provider value={values}>{children}</orgaContext.Provider>
+    );
   };
-
-  const getOneOrga = async (id) => {
-    try {
-      const res = await axios(`${API}${id}/`);
-      console.log(res);
-      dispatch({
-        type: "GET_ONE_ORGA",
-        payload: res.data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const editOrga = async (id, newObj) => {
-    try {
-      const token = JSON.parse(localStorage.getItem("token"));
-      const Authorization = `Bearer ${token.access}`;
-      console.log(Authorization);
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios.patch(`${API}${id}/`, newObj, config);
-      console.log(res.data.results);
-      getOrga();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const deleteOrga = async (id) => {
-    try {
-      const token = JSON.parse(localStorage.getItem("token"));
-      const Authorization = `Bearer ${token.access}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios.delete(`${API}${id}/`, config);
-      console.log(res);
-      getOrga();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const likeOrga = async (id) => {
-    try {
-      const token = JSON.parse(localStorage.getItem("token"));
-      const Authorization = `Bearer ${token.access}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios.post(`${API}${id}/like/`, {}, config);
-      console.log(res);
-      getOrga();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const ratingOrga = async (id) => {
-    try {
-      const token = JSON.parse(localStorage.getItem("token"));
-      const Authorization = `Bearer ${token.access}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      const res = await axios.post(`${API}${id}/rating/`, { value: 3 }, config);
-      console.log(res);
-      getOrga();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const subscribeOrga = async (id) => {
-    try {
-      const token = JSON.parse(localStorage.getItem("token"));
-      const Authorization = `Bearer ${token.access}`;
-      const config = {
-        headers: {
-          Authorization,
-        },
-      };
-      let res = await axios.post(`${API}${id}/subscribe/`, {}, config);
-      console.log(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const fetchByParams = async (query, value) => {
-    const search = new URLSearchParams(location.search);
-
-    if (value == "all") {
-      search.delete(query);
-    } else {
-      search.set(query, value);
-    }
-    const url = `${location.pathname}?${search.toString()}`;
-    navigate(url);
-  };
-
-  const values = {
-    addOrga,
-    getOrga,
-    getOneOrga,
-    editOrga,
-    deleteOrga,
-    likeOrga,
-    ratingOrga,
-    subscribeOrga,
-    fetchByParams,
-
-    pages: state.pages,
-    orgaProducts: state.orgaProducts,
-    oneProductOrga: state.oneProductOrga,
-  };
-
-  return <orgaContext.Provider value={values}>{children}</orgaContext.Provider>;
 };
-
 export default OrgaContextProvider;

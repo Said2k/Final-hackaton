@@ -15,40 +15,40 @@ const ProductList = ({item}) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [searchProduct, setSearchProduct] = useState(searchParams.get('q')|| '')
     const [currentPage, setCurrentPage] = useState(1)
-
-
-
+    
+    
     useEffect(()=>{
         setSearchParams({
             q: searchProduct,
         })
         getOrga()
     },[searchProduct])
-
+    
     useEffect(()=>{
-    getOrga()
+        getOrga()
     },[searchParams])
-
-
+    
+    
     useEffect(()=>{
         setSearchParams({
             page: currentPage,
-
+            
         })
         // console.log(window.location);
     },[currentPage])
-
-
-console.log(pages);
-
+    
+    
+    console.log(pages);
+    
 // console.log(orgaProducts);
     return (
         <>
         <div id="product-list">
             <div className='product-list-left'>
-            <div className="lsacetug_dolponaxed">
 
-            <RadioGroup sx={{display: 'flex', flexDirection: 'row'}} onChange={(e)=>fetchByParams('category', e.target.value)}>
+
+
+            <RadioGroup className='products-sidebar' sx={{display: 'flex', flexDirection: 'column'}} onChange={(e)=>fetchByParams('category', e.target.value)}>
 
 <FormControlLabel value={'Еда'} control={<Radio/>} label={'Еда'}/>
 <FormControlLabel value={'Товары'} control={<Radio/>} label={'Товары'}/>
@@ -58,19 +58,13 @@ console.log(pages);
 </RadioGroup>
  
 
-</div>
+{/* </div> */}
             </div>
             <div className='product-list-mid'>
                 {orgaProducts.map((item)=>(
                     <ProductCard item={item} key={item.id}/>
                 ))}
-                <Pagination
-                onChange={(e,page)=>setCurrentPage(page)}
-                variant='outlined'
-                color='primary'
-                count={pages}
-                page={currentPage}
-                />
+                
             </div>
             <div className='product-list-right'>Избранное
            
@@ -84,6 +78,13 @@ console.log(pages);
 
 
         </div>
+        <Pagination
+                onChange={(e,page)=>setCurrentPage(page)}
+                variant='outlined'
+                color='primary'
+                count={pages}
+                page={currentPage}
+                />
             <Footer/>
             </>
     );
