@@ -9,10 +9,10 @@ import Footer from '../footer/Footer';
 import '../products/ProductList.css'
 import ProductCard from './ProductListCard';
 import { useProducts } from '../../Context/productContext';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../Context/authContext';
 const ProductList = () => {
-    const {user} = useAuth()
 
     const { getOrga, orgaProducts,subscribeOrga,fetchByParams,pages} = useOrgaContext()
     const [searchParams, setSearchParams] = useSearchParams();
@@ -46,7 +46,7 @@ console.log(user);
     return (
         <div className='product-list1'>
         
-        {user == user ? <div className='add-btn'><button onClick={()=> navigate('/add-orga')} className='add-orga-btn'>ДОБАВИТЬ</button></div> : null }
+        {user ? <div className='add-btn'><button onClick={()=> navigate('/add-orga')} className='add-orga-btn'>ДОБАВИТЬ</button></div> : null }
 
         <div id="product-list">
             <div className='product-list-left'>
