@@ -8,18 +8,31 @@ import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import Footer from '../footer/Footer';
 import { useNavigate } from 'react-router-dom'
 import { useRecommend } from '../../Context/recommendation';
+import { useProducts } from '../../Context/productContext';
+import { useOrgaContext } from '../../Context/organContext';
 const Home = () => {
     const {getRec, recomm} = useRecommend()
+    const {getProduct} = useProducts()
+    const {getOrga,orgaProducts} = useOrgaContext()
     useEffect(()=>{
         getRec()
+        getOrga()
     },[])
-    console.log(recomm)
+        const work = orgaProducts.filter((item)=>{
+            return item.category == 'Другое'
+        })
+
+    console.log(work)
     const navigate = useNavigate()
     return (
         <div>
         <Box className="homepage-main">
             <Box className='home-block1'>
                 {/* <h1 '>ПОЛУЧАЙ И ЗАРАБАТЫВАЙ ВМЕСТЕ С НАМИ</h1> */}
+
+               
+                  
+               
             <Box className='home-page-block1'>
                        <div >
                         <h1 id='home-page-h1'>ПОЛУЧАЙ И ЗАРАБАТЫВАЙ ВМЕСТЕ С НАМИ</h1>
@@ -45,7 +58,7 @@ const Home = () => {
                 <SideBar/>
             </div>
             <div className='mid-block'>
-                <HomeCard/>
+                <HomeCard work={work}/>
             </div>
             <div className='right-block'>
 
