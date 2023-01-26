@@ -29,7 +29,7 @@ padding: 5px;
    display: flex;
    flex-wrap: wrap;
    justify-content: space-around;
-    width: 69%;
+    width: 60%;
     height: 100%;
     border: 1px #fce300 solid;
     border-radius: 5px;
@@ -285,6 +285,9 @@ cursor: pointer;
   .product-list-mid{
     width: 100%;
     height: auto;
+  }
+  .product-list-right{
+    width: auto;
   }
   .card{
     width: auto;
