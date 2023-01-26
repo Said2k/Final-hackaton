@@ -51,7 +51,7 @@ const ProductContextProvider = ({children}) =>{
             }
             const res = await axios.post(`${API}${organization}/products/`,newProduct, config)
             console.log(res);
-            getProduct()
+            getProduct(organization)
         } catch (error) {
             console.log(error);
 

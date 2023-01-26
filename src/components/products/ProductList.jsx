@@ -9,7 +9,7 @@ import Footer from '../footer/Footer';
 import '../products/ProductList.css'
 import ProductCard from './ProductListCard';
 import { useProducts } from '../../Context/productContext';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../Context/authContext';
 const ProductList = () => {
     const {user} = useAuth()
@@ -19,7 +19,6 @@ const ProductList = () => {
     const [searchProduct, setSearchProduct] = useState(searchParams.get('q')|| '')
     const [currentPage, setCurrentPage] = useState(1)
     const navigate = useNavigate()
-    const {user} = useAuth()
 console.log(user);
 
 
