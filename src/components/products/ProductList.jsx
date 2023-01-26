@@ -10,7 +10,9 @@ import '../products/ProductList.css'
 import ProductCard from './ProductListCard';
 import { useProducts } from '../../Context/productContext';
 import { useSearchParams } from 'react-router-dom';
-const ProductList = ({item}) => {
+import { useAuth } from '../../Context/authContext';
+const ProductList = () => {
+    const {user} = useAuth()
     const { getOrga, orgaProducts,subscribeOrga,fetchByParams,pages} = useOrgaContext()
     const [searchParams, setSearchParams] = useSearchParams();
     const [searchProduct, setSearchProduct] = useState(searchParams.get('q')|| '')
@@ -37,7 +39,7 @@ const ProductList = ({item}) => {
         // console.log(window.location);
     },[currentPage])
 
-// console.log(orgaProducts);
+// console.log();
     return (
         <>
         <div id="product-list">
@@ -53,6 +55,7 @@ const ProductList = ({item}) => {
 <FormControlLabel value={'Все'} control={<Radio/>} label={'Все'}/>
 
 </RadioGroup>
+
  
 
 {/* </div> */}

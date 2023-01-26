@@ -51,6 +51,7 @@ const ProductContextProvider = ({children}) =>{
             }
             const res = await axios.post(`${API}${organization}/products/`,newProduct, config)
             console.log(res);
+            getProduct()
         } catch (error) {
             console.log(error);
 
@@ -111,7 +112,7 @@ const ProductContextProvider = ({children}) =>{
                     Authorization,
                 }
             }
-            const res = await axios.delete(`${API}${organization}/products/${id}`,config)
+            let res = await axios.delete(`${API}${organization}/products/${id}/`,config)
             console.log(res);
             getProduct(organization)
         } catch (error) {

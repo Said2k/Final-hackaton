@@ -31,7 +31,7 @@ const AddProduct = () => {
   console.log(product);
     return (
         <div>
-            <Box className="add-block" sx={{ width: "60vw", margin: "10vh auto" }}>
+            <Box className="add-block" sx={{ width: "60vw", margin: "10vh auto" , display: 'flex', flexDirection: 'column',gap: '20px' }}>
       <TextField
         value={product.title}
         onChange={(e) =>
@@ -39,14 +39,14 @@ const AddProduct = () => {
         }
         fullWidth
         id="outlined-basic"
-        label="Title"
+        label="Наименование"
         variant="outlined"
         name="Title"
       />
       <TextField
         fullWidth
         id="outlined-basic"
-        label="Address"
+        label="Описание"
         variant="outlined"
         name="Address"
         value={product.description}
@@ -57,7 +57,7 @@ const AddProduct = () => {
       <TextField
         fullWidth
         id="outlined-basic"
-        label="Number"
+        label="Стоимость"
         variant="outlined"
         name="price"
         value={product.price}
@@ -65,24 +65,22 @@ const AddProduct = () => {
             setProduct((prev) => ({ ...prev, price: e.target.value }))
         }
       />
-        <TextField
-        fullWidth
-        type='file'
-        id="outlined-basic"
-        label="Picture"
-        variant="outlined"
-        name="picture"
-        onChange={(e) =>
-            setProduct({...product, cover: e.target.files[0]})
-        }
-      />
+ 
+      <input 
+      name="picture"
+      type="file"
+      onChange={(e) =>
+        setProduct({...product, cover: e.target.files[0]})
+    } />
       <Button
         onClick={() => {
          handleSave()
+         navigate(`/menu/${id}`)
         }}
         variant="outlined"
         fullWidth
         size="large"
+        
       >
         CREATE PRODUCT
       </Button>

@@ -6,6 +6,7 @@ import '../aboutUs/AboutUs.css'
 import Footer from '../footer/Footer';
 
 const AboutUs = () => {
+ 
     return (
         <div className='aboutus-main'>
 
